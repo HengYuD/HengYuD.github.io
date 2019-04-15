@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HengYuD</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-04-15T12:23:15.024Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>HengYuD</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hadoop部署</title>
+    <link href="http://yoursite.com/2019/04/13/Hadoop%E9%83%A8%E7%BD%B2/"/>
+    <id>http://yoursite.com/2019/04/13/Hadoop部署/</id>
+    <published>2019-04-13T11:08:58.000Z</published>
+    <updated>2019-04-15T12:23:15.024Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h2&gt;&lt;p&gt;Ubuntu 14.04.5 x64&lt;br&gt;Hadoop 2.x.y&lt;/p&gt;
+&lt;p&gt;Hadoop 有两个主要版本，Hadoop 1.x.y 
+      
+    
+    </summary>
+    
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/04/11/hello-world/"/>
+    <id>http://yoursite.com/2019/04/11/hello-world/</id>
+    <published>2019-04-11T05:31:00.209Z</published>
+    <updated>2019-04-11T05:31:00.209Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
