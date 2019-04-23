@@ -75,12 +75,10 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Gnuradio,">
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="HengYuD" type="application/atom+xml">
@@ -90,14 +88,29 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="实验目的： 学习 GNU Radio 流程图编程。 了解复解析信号的接收处理流程， 找到自己需要的模块， 修改模块的参数， 并能根据实验结果分析理论原因。 实验步骤： 1.在 GRC 中打开一个新流程图。  2.按图所示建立一个简单的流程图， 和之前的实验那样给三个 block 的数据类型设定为 float，同时把所有的其它值设定为默认值。 3.执行流程图，打开显示窗口显示一个正弦波，然后测量该信">
+<meta name="keywords" content="Gnuradio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gnuradio之复解析信号特征">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/index.html">
 <meta property="og:site_name" content="HengYuD">
+<meta property="og:description" content="实验目的： 学习 GNU Radio 流程图编程。 了解复解析信号的接收处理流程， 找到自己需要的模块， 修改模块的参数， 并能根据实验结果分析理论原因。 实验步骤： 1.在 GRC 中打开一个新流程图。  2.按图所示建立一个简单的流程图， 和之前的实验那样给三个 block 的数据类型设定为 float，同时把所有的其它值设定为默认值。 3.执行流程图，打开显示窗口显示一个正弦波，然后测量该信">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T12:21:26.179Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/48.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/49.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/50.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/51.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/52.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/53.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/54.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/55.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/56.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/57.png">
+<meta property="og:updated_time" content="2019-04-23T09:26:46.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="Gnuradio之复解析信号特征">
+<meta name="twitter:description" content="实验目的： 学习 GNU Radio 流程图编程。 了解复解析信号的接收处理流程， 找到自己需要的模块， 修改模块的参数， 并能根据实验结果分析理论原因。 实验步骤： 1.在 GRC 中打开一个新流程图。  2.按图所示建立一个简单的流程图， 和之前的实验那样给三个 block 的数据类型设定为 float，同时把所有的其它值设定为默认值。 3.执行流程图，打开显示窗口显示一个正弦波，然后测量该信">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/48.png">
 
 
 
@@ -127,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/">
 
 
 
 
 
-  <title>categories | HengYuD</title>
+  <title>Gnuradio之复解析信号特征 | HengYuD</title>
   
 
 
@@ -290,40 +303,270 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HengYuD">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HengYuD">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
+          <h1 class="post-title" itemprop="name headline">Gnuradio之复解析信号特征</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T16:29:41+08:00">
+                2019-04-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T17:26:46+08:00">
+                2019-04-23
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/无线通信/" itemprop="url" rel="index">
+                    <span itemprop="name">无线通信</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/23/Gnuradio之复解析信号特征/" class="leancloud_visitors" data-flag-title="Gnuradio之复解析信号特征">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  998
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
             </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/无线通信/">无线通信</a><span class="category-list-count">5</span></li></ul>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><strong>实验目的：</strong></p>
+<p>学习 GNU Radio 流程图编程。 了解复解析信号的接收处理流程， 找到自己需要的模块， 修改模块的参数， 并能根据实验结果分析理论原因。</p>
+<p><strong>实验步骤：</strong></p>
+<p>1.在 GRC 中打开一个新流程图。</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/48.png" alt></p>
+<p>2.按图所示建立一个简单的流程图， 和之前的实验那样给三个 block 的数据类型设定为 float，同时把所有的其它值设定为默认值。</p>
+<p>3.执行流程图，打开显示窗口显示一个正弦波，然后测量该信号的幅度和频率是不是之前所设定的。</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/49.png" alt></p>
+<p>4.把上述三个框图的类型改为复值，再执行上述流程，显示窗口应该会显示2 个相位互相差 90 度的正弦波。前面的那个波形（来自 Channel 1）为 I（实部）或者称为同相分量，后面的那个波形称之为 Q（虚部）或者正交分量。如果把一个信号源设为复信号，它会同时输出 I 和 Q 分量。</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/50.png" alt></p>
+<p>5.修改流程图如图 2 所示，信号源输出设为数据类型为 float 的方波。那么第一个显示窗口和 Throttle 模块都必须设定允许 Float 数据输入。</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/51.png" alt></p>
+<p>6.图中的希尔伯特模块可以从滤波器菜单中找到。该模块既可以输出复输入信号的实部，也可以输出其希尔伯特变换的结果。设其默认标签数为 64 个。由于该模块的输出是复值，第二个显示窗口也必须设为可以接收复输入。</p>
+<p>7.执行该流程图，打开那两个显示窗口，其一应当为信号源输出的方波，另外一个应该同时包含原方波信号及其希尔伯特变换。<strong>能解释为什么方波信号的希尔伯特变换波形是这个样子吗？</strong></p>
+<p>因为希尔伯特变换是将信号与 $\frac{1}{\pi t}$ 进行卷积得到，所以是这样子的。</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/52.png" alt></p>
+<p>8.如前第四步所说，信号源可以输出一个复信号，然后在显示窗口显示其实部 I 和虚部 Q。现在把流程图修改为图 3 的设定</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/53.png" alt></p>
+<p>9.设定信号源输出复波形，然后确保 Throttle 与显示窗口的数据类型都是复数。执行该流程图，<strong>发现这里显示的与希尔伯特变换的结果一样吗？</strong></p>
+<p>不一样</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/54.png" alt></p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/55.png" alt></p>
+<p>10.新建一个如图流程图，要确保所有模块的类型要设定为 float。该流程图使用 2个余弦信号，频率分别为1KHz和10KHz。让这两个信号相乘，由三角公式我们知道两个余弦信号的积，其结果为频率分别是原信号频率的和与原信号频率的差的合成信号。从频谱图看，应该会得到 9KHz 和 11KHz 的信号输出。</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/56.png" alt>11.执行流程图，然后确认其结果是否与分析的一致。应该注意到 FFT plot模块仅能显示数据类型为 float 的正频谱。我们知道实输入信号的负频谱分量与正频谱分量其实是一样的。</p>
+<p>12.把所有模块的数据类型全改为复数，再次执行流程图。你会观察到一个11KHz 频率的信号，这是原信号平移了 1KHz 的结果。</p>
+<p><img src="/2019/04/23/Gnuradio之复解析信号特征/57.png" alt></p>
+<p> <strong>如果你想向相反的方向平移，该怎么做？ </strong></p>
+<p>若要向反方向平移，将1kHz的信号频率改成-1kHz，可以通过三角函数设置初始相位使频率为负值</p>
+<p>从这个例子中看到两个使用解析信号的优势。一个信号可以在创建一个不同信号的基础上就可以实现频谱平移。</p>
+<p><strong>为什么这里没有负频率分量？</strong></p>
+<p>因为现实中频率不能为复数</p>
+<p><a href="complex.grc">complex.grc</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    HengYuD
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/" title="Gnuradio之复解析信号特征">http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gnuradio/" rel="tag"># Gnuradio</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/23/Gnuradio之AM电台接收机/" rel="next" title="Gnuradio之AM电台接收机">
+                <i class="fa fa-chevron-left"></i> Gnuradio之AM电台接收机
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
