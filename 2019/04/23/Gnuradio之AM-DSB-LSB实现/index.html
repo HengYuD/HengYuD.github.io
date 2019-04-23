@@ -88,13 +88,13 @@
 
 
 
-<meta name="description" content="##实验目的： 利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：  AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调  并通过仿真结果验证其频谱的正确性。 ##实验原理： 通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 ##实验步骤： 可能使用的模块有”Signal Source、 Multiply Const（乘">
+<meta name="description" content="实验目的利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：  AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调  并通过仿真结果验证其频谱的正确性。 实验原理通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 实验步骤可能使用的模块有”Signal Source、 Multiply Const（乘以常系数）、Add Co">
 <meta name="keywords" content="Gnuradio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gnuradio之AM-DSB-LSB实现">
 <meta property="og:url" content="http://yoursite.com/2019/04/23/Gnuradio之AM-DSB-LSB实现/index.html">
 <meta property="og:site_name" content="HengYuD">
-<meta property="og:description" content="##实验目的： 利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：  AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调  并通过仿真结果验证其频谱的正确性。 ##实验原理： 通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 ##实验步骤： 可能使用的模块有”Signal Source、 Multiply Const（乘">
+<meta property="og:description" content="实验目的利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：  AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调  并通过仿真结果验证其频谱的正确性。 实验原理通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 实验步骤可能使用的模块有”Signal Source、 Multiply Const（乘以常系数）、Add Co">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之AM-DSB-LSB实现/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之AM-DSB-LSB实现/13.png">
@@ -111,10 +111,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之AM-DSB-LSB实现/23.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之AM-DSB-LSB实现/24.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/23/Gnuradio之AM-DSB-LSB实现/25.png">
-<meta property="og:updated_time" content="2019-04-23T07:31:35.211Z">
+<meta property="og:updated_time" content="2019-04-23T07:35:40.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gnuradio之AM-DSB-LSB实现">
-<meta name="twitter:description" content="##实验目的： 利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：  AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调  并通过仿真结果验证其频谱的正确性。 ##实验原理： 通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 ##实验步骤： 可能使用的模块有”Signal Source、 Multiply Const（乘">
+<meta name="twitter:description" content="实验目的利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：  AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调  并通过仿真结果验证其频谱的正确性。 实验原理通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 实验步骤可能使用的模块有”Signal Source、 Multiply Const（乘以常系数）、Add Co">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/23/Gnuradio之AM-DSB-LSB实现/1.png">
 
 
@@ -365,7 +365,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T15:31:35+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T15:35:40+08:00">
                 2019-04-23
               </time>
             
@@ -464,29 +464,24 @@
       
 
       
-        <p>##实验目的：</p>
-<p>利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：</p>
+        <h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：</p>
 <ul>
 <li>AM 调制和控制调幅指数</li>
 <li>DSB 调制和解调</li>
 <li>LSB 调制和解调</li>
 </ul>
 <p>并通过仿真结果验证其频谱的正确性。</p>
-<p>##实验原理：</p>
-<p>通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。</p>
-<p>##实验步骤：</p>
-<p>可能使用的模块有”Signal Source、 Multiply Const（乘以常系数）、Add Const（加常系数） 、 Multiply、 Throttle、 WX GUI FFT Sink、 Low Pass Filter、 WX GUI Scope Sink”。</p>
+<h2 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h2><p>通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。</p>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>可能使用的模块有”Signal Source、 Multiply Const（乘以常系数）、Add Const（加常系数） 、 Multiply、 Throttle、 WX GUI FFT Sink、 Low Pass Filter、 WX GUI Scope Sink”。</p>
 <p>余弦调制信号频率： 200Hz；</p>
 <p>载频： 1000Hz；</p>
 <p>采样率； 5000Hz</p>
 <p>放大系数 Ac： 0.35</p>
-<p>##AM 调制和控制调幅指数</p>
-<p>1.产生常规 AM 调制信号，观察频谱变化；利用 Slider 模块，调整调幅指数，观察时域波形变化。</p>
+<h2 id="AM-调制和控制调幅指数"><a href="#AM-调制和控制调幅指数" class="headerlink" title="AM 调制和控制调幅指数"></a>AM 调制和控制调幅指数</h2><p>1.产生常规 AM 调制信号，观察频谱变化；利用 Slider 模块，调整调幅指数，观察时域波形变化。</p>
 <p><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/1.png" alt="1"></p>
 <p><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/13.png" alt></p>
 <p>根据公式画出上图，m(t)信号先加常系数1，再与载频信号相乘，再乘slider模块控制的常系数，最后画出时域图(频域图)</p>
-<p>##DSB 调制与解调</p>
-<p><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/2.png" alt="2"></p>
+<h2 id="DSB-调制与解调"><a href="#DSB-调制与解调" class="headerlink" title="DSB 调制与解调"></a>DSB 调制与解调</h2><p><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/2.png" alt="2"></p>
 <p>解调 DSB 信号：</p>
 <p><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/16.png" alt></p>
 <p><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/14.png" alt><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/15.png" alt></p>
@@ -497,8 +492,7 @@
 <p><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/19.png" alt="19"></p>
 <p>解调后信号频谱：</p>
 <p><img src="/2019/04/23/Gnuradio之AM-DSB-LSB实现/19.png" alt="19"></p>
-<p>##LSB 调制与解调</p>
-<p>$$S_{\text{SSB}}\left( t \right) = \frac{1}{2}A_{c}m\left( t \right)cos2\pi f_{c}t \mp \frac{1}{2}A_{c}m\hat{}\left( t \right)sin2\pi f_{c}t$$</p>
+<h2 id="LSB-调制与解调"><a href="#LSB-调制与解调" class="headerlink" title="LSB 调制与解调"></a>LSB 调制与解调</h2><p>$$S_{\text{SSB}}\left( t \right) = \frac{1}{2}A_{c}m\left( t \right)cos2\pi f_{c}t \mp \frac{1}{2}A_{c}m\hat{}\left( t \right)sin2\pi f_{c}t$$</p>
 <p>在本实验中，信号源为$m\left( t \right) = \cos\left( 2<em>pi</em>200*t \right)$</p>
 <p>其希尔伯特变换为$m\hat{}(t) = sin(2<em>pi</em>200*t)$</p>
 <p>按下图产生下边带信号</p>
@@ -618,8 +612,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -721,6 +724,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验目的"><span class="nav-number">1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验原理"><span class="nav-number">2.</span> <span class="nav-text">实验原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验步骤"><span class="nav-number">3.</span> <span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AM-调制和控制调幅指数"><span class="nav-number">4.</span> <span class="nav-text">AM 调制和控制调幅指数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DSB-调制与解调"><span class="nav-number">5.</span> <span class="nav-text">DSB 调制与解调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSB-调制与解调"><span class="nav-number">6.</span> <span class="nav-text">LSB 调制与解调</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
