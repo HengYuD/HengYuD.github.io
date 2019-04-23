@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-23T09:26:46.963Z</updated>
+  <updated>2019-04-23T12:49:59.715Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,19 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Gnuradio之复解析信号特征</title>
-    <link href="http://yoursite.com/2019/04/23/Gnuradio%E4%B9%8B%E5%A4%8D%E8%A7%A3%E6%9E%90%E4%BF%A1%E5%8F%B7%E7%89%B9%E5%BE%81/"/>
-    <id>http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/</id>
-    <published>2019-04-23T08:29:41.000Z</published>
-    <updated>2019-04-23T09:26:46.963Z</updated>
+    <title>Gnuradio之SSB信号接收</title>
+    <link href="http://yoursite.com/2019/04/23/Gnuradio%E4%B9%8BSSB%E4%BF%A1%E5%8F%B7%E6%8E%A5%E6%94%B6/"/>
+    <id>http://yoursite.com/2019/04/23/Gnuradio之SSB信号接收/</id>
+    <published>2019-04-23T09:50:43.000Z</published>
+    <updated>2019-04-23T12:49:59.715Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;strong&gt;实验目的：&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;实验目的 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;学习 GNU Radio 流程图编程。 了解 SSB 信号的接收处理流程， 找到自己需要的模块， 修改模块的参数， 并能根据实验结果分析理论原因。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实验原理 &lt;/strong&gt;&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="无线通信" scheme="http://yoursite.com/categories/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/"/>
+    
+    
+      <category term="Gnuradio" scheme="http://yoursite.com/tags/Gnuradio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gnuradio之复解析信号特征</title>
+    <link href="http://yoursite.com/2019/04/23/Gnuradio%E4%B9%8B%E5%A4%8D%E8%A7%A3%E6%9E%90%E4%BF%A1%E5%8F%B7%E7%89%B9%E5%BE%81/"/>
+    <id>http://yoursite.com/2019/04/23/Gnuradio之复解析信号特征/</id>
+    <published>2019-04-23T08:29:41.000Z</published>
+    <updated>2019-04-23T12:39:45.131Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;实验目的 &lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;学习 GNU Radio 流程图编程。 了解复解析信号的接收处理流程， 找到自己需要的模块， 修改模块的参数， 并能根据实验结果分析理论原因。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;实验步骤：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实验步骤 &lt;/strong&gt;&lt;/p&gt;
 &lt;
       
     
