@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-23T07:26:08.463Z</updated>
+  <updated>2019-04-23T07:31:35.211Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,18 +21,19 @@
     <link href="http://yoursite.com/2019/04/23/Gnuradio%E4%B9%8BAM-DSB-LSB%E5%AE%9E%E7%8E%B0/"/>
     <id>http://yoursite.com/2019/04/23/Gnuradio之AM-DSB-LSB实现/</id>
     <published>2019-04-23T07:05:49.000Z</published>
-    <updated>2019-04-23T07:26:08.463Z</updated>
+    <updated>2019-04-23T07:31:35.211Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;strong&gt;实验目的：&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;##实验目的：&lt;/p&gt;
 &lt;p&gt;利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;AM 调制和控制调幅指数&lt;/li&gt;
 &lt;li&gt;DSB 调制和解调&lt;/li&gt;
-&lt;li&gt;LSB 
+&lt;li&gt;LSB 调制和解调&lt;/li&gt;
+&lt;/ul
       
     
     </summary>
