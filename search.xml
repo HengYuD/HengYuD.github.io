@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Gnuradio之ASK信号的调制与解调]]></title>
+    <url>%2F2019%2F04%2F23%2FGnuradio%E4%B9%8BASK%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%B0%83%E5%88%B6%E4%B8%8E%E8%A7%A3%E8%B0%83%2F</url>
+    <content type="text"><![CDATA[实验目的： 学习 GNU Radio 流程图编程。 了解 ASK 信号的发送和接收处理流程， 找到自己需要的模块， 修改模块的参数，设计 ASK 信号发送接收流程图 实验步骤： 利用幅度键控 ASK 理论，在 GNU Radio 环境下完成了 ASK 调制信号的产生和解调。整个流图如下： 第一个相乘器后产生的即 ask 信号。利用高频载波与调制信号相乘产生，其中调制信号中设置了高斯白噪声。经过传输特性为带通的信道传输。解调电路采用相干解调，由 ask 信号与原来的载波进行相乘，然后经过低通滤波，这里的门限值分别为0.1 和 0.5，不同的值对最后的影响主要是占空比和时延。最后由脉冲抽样电路完成原来数字调制信号的恢复。 原始调制信号： 产生的 ask 信号波形和频谱： 经过低通滤波器后的波形与频谱： 最后解调的结果： 与原始信号对比，为什么有延迟和占空比的变化？ 因为信号经过低通滤波器，滤波器的门限值影响延迟和占空比]]></content>
+      <categories>
+        <category>无线通信</category>
+      </categories>
+      <tags>
+        <tag>Gnuradio</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Gnuradio之AM-DSB-LSB实现]]></title>
     <url>%2F2019%2F04%2F23%2FGnuradio%E4%B9%8BAM-DSB-LSB%E5%AE%9E%E7%8E%B0%2F</url>
     <content type="text"><![CDATA[实验目的利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现： AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调 并通过仿真结果验证其频谱的正确性。 实验原理通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 实验步骤可能使用的模块有”Signal Source、 Multiply Const（乘以常系数）、Add Const（加常系数） 、 Multiply、 Throttle、 WX GUI FFT Sink、 Low Pass Filter、 WX GUI Scope Sink”。 余弦调制信号频率： 200Hz； 载频： 1000Hz； 采样率； 5000Hz 放大系数 Ac： 0.35 AM 调制和控制调幅指数1.产生常规 AM 调制信号，观察频谱变化；利用 Slider 模块，调整调幅指数，观察时域波形变化。 根据公式画出上图，m(t)信号先加常系数1，再与载频信号相乘，再乘slider模块控制的常系数，最后画出时域图(频域图) DSB 调制与解调 解调 DSB 信号： 发送信号频谱： DSB 调制信号频谱： 解调后信号频谱： LSB 调制与解调$$S_{\text{SSB}}\left( t \right) = \frac{1}{2}A_{c}m\left( t \right)cos2\pi f_{c}t \mp \frac{1}{2}A_{c}m\hat{}\left( t \right)sin2\pi f_{c}t$$ 在本实验中，信号源为$m\left( t \right) = \cos\left( 2pi200*t \right)$ 其希尔伯特变换为$m\hat{}(t) = sin(2pi200*t)$ 按下图产生下边带信号 解调LSB信号： LSB 调制信号频谱： 解调信号频谱：]]></content>
