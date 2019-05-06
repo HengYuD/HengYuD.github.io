@@ -333,9 +333,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+        <div id="gitalk-container"></div>
     </div>
 
   
@@ -647,45 +645,29 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'HengYuD',
-            repo: 'HengYuD.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '7668cc8cfeaf79704cbb8c064cecbdcf2ea056f3',
-            
-                client_id: '0b490ffdffc97947ae5d'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b490ffdffc97947ae5d',
+          clientSecret: '7668cc8cfeaf79704cbb8c064cecbdcf2ea056f3',
+          repo: 'gitalk',
+          owner: 'HengYuD',
+          admin: ['HengYuD'],
+          id:'gitalk_20190415202219',
+          labels: 'gitalk',
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
