@@ -312,7 +312,7 @@
         
         
           
-    <div id="aplayer-urzjYDRw" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1356499052" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-HUzdyYQH" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1356499052" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>喜欢游山玩水、看电影、打羽毛球</p>
 <p>唯有美食、美景、美人不可辜负</p>
 <p>眼中有风景，心中有江湖</p>
@@ -336,6 +336,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -644,6 +651,43 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'HengYuD# MUST HAVE, Your Github ID',
+            repo: 'HengYuD.github.io# MUST HAVE, The repo you use to store Gitment comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7668cc8cfeaf79704cbb8c064cecbdcf2ea056f3',
+            
+                client_id: '0b490ffdffc97947ae5d# MUST HAVE, Github client id for the Gitment'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
