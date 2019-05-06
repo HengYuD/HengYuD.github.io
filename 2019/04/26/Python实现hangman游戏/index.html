@@ -946,11 +946,11 @@
           repo: 'HengYuD.github.io',
           owner: 'HengYuD',
           admin: ['HengYuD'],
-          id:'gitalk_20190426005602',
+          id: md5(location.pathname),
           labels: 'gitalk'.split(',').filter(l => l),
           perPage: 10,
           pagerDirection: 'last',
-          createIssueManually: true,
+          createIssueManually: false,
           distractionFreeMode: false
         })
         gitalk.render('gitalk-container')           
