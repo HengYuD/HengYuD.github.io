@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon1_32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1_16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="简单绘图语言解释器,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="HengYuD" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="为函数绘图语言编写一个解释器。​        解释器接受用绘图语言编写的源程序，经语法和语义分析之后，将源程序所规定的图形显示在显示屏（或窗口）中。 目的​        通过自己动手编写解释器，掌握语言翻译特别是语言识别的基本方法，加深对编译器构造原理和方法的理解，巩固所学。  &amp;lt;1&amp;gt; 会用正规式和产生式设计简单语言的语法； &amp;lt;2&amp;gt; 会用递归下降子程序编写编译器或解释器；  语句原">
+<meta name="keywords" content="简单绘图语言解释器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理：简单绘图语言解释器的实现">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/index.html">
+<meta property="og:site_name" content="HengYuD">
+<meta property="og:description" content="为函数绘图语言编写一个解释器。​        解释器接受用绘图语言编写的源程序，经语法和语义分析之后，将源程序所规定的图形显示在显示屏（或窗口）中。 目的​        通过自己动手编写解释器，掌握语言翻译特别是语言识别的基本方法，加深对编译器构造原理和方法的理解，巩固所学。  &amp;lt;1&amp;gt; 会用正规式和产生式设计简单语言的语法； &amp;lt;2&amp;gt; 会用递归下降子程序编写编译器或解释器；  语句原">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/10.png">
+<meta property="og:updated_time" content="2019-05-06T12:01:50.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编译原理：简单绘图语言解释器的实现">
+<meta name="twitter:description" content="为函数绘图语言编写一个解释器。​        解释器接受用绘图语言编写的源程序，经语法和语义分析之后，将源程序所规定的图形显示在显示屏（或窗口）中。 目的​        通过自己动手编写解释器，掌握语言翻译特别是语言识别的基本方法，加深对编译器构造原理和方法的理解，巩固所学。  &amp;lt;1&amp;gt; 会用正规式和产生式设计简单语言的语法； &amp;lt;2&amp;gt; 会用递归下降子程序编写编译器或解释器；  语句原">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/11.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/">
+
+
+
+
+
+  <title>编译原理：简单绘图语言解释器的实现 | HengYuD</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HengYuD</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HengYuD">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HengYuD">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">编译原理：简单绘图语言解释器的实现</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T19:42:42+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-06T20:01:50+08:00">
+                2019-05-06
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编译原理/" itemprop="url" rel="index">
+                    <span itemprop="name">编译原理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/06/编译原理：简单绘图语言解释器的实现/" class="leancloud_visitors" data-flag-title="编译原理：简单绘图语言解释器的实现">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="为函数绘图语言编写一个解释器。"><a href="#为函数绘图语言编写一个解释器。" class="headerlink" title="为函数绘图语言编写一个解释器。"></a><strong>为函数绘图语言编写一个解释器。</strong></h1><p>​        解释器接受用绘图语言编写的源程序，经语法和语义分析之后，将源程序所规定的图形显示在显示屏（或窗口）中。</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a><strong>目的</strong></h2><p>​        通过自己动手编写解释器，掌握语言翻译特别是语言识别的基本方法，加深对编译器构造原理和方法的理解，巩固所学。</p>
+<ul>
+<li>&lt;1> 会用正规式和产生式设计简单语言的语法；</li>
+<li>&lt;2> 会用递归下降子程序编写编译器或解释器；</li>
+</ul>
+<h2 id="语句原则"><a href="#语句原则" class="headerlink" title="语句原则"></a><strong>语句原则</strong></h2><p>1、各类语句可以按任意次序书写，且语句以分号结尾。源程序中的语句以它们出现的先后顺序处理。</p>
+<p>2、ORIGIN、ROT 和 SCALE 语句只影响其后的绘图语句，且遵循最后出现的语句有效的原则。例如，若有下述ROT语句序列：</p>
+<p>​         ROT IS  0.7 ； ROT IS  1.57 ；</p>
+<p>​        则随后的绘图语句将按1.57而不是0.7弧度旋转。</p>
+<p>3、无论 ORIGIN、ROT 和 SCALE 语句的出现顺序如何，图形的变换顺序总是：</p>
+<p>​        比例变换→旋转变换→平移变换</p>
+<p>4、语言对大小写不敏感，如 for、For、FOR 等，均被认为是同一个保留字。</p>
+<p>5、语句中表达式的值均为双精度类型，旋转角度单位为弧度且为逆时针旋转，平移单位为点。</p>
+<h2 id="语句的语法与语义"><a href="#语句的语法与语义" class="headerlink" title="语句的语法与语义"></a><strong>语句的语法与语义</strong></h2><h2 id="循环绘图（FOR-DRAW）语句"><a href="#循环绘图（FOR-DRAW）语句" class="headerlink" title="循环绘图（FOR-DRAW）语句"></a><strong>循环绘图（FOR-DRAW）语句</strong></h2><p><strong>语法：</strong></p>
+<p>​        FOR T FROM 起点 TO 终点 STEP 步长 DRAW (横坐标,  纵坐标);</p>
+<p><strong>语义</strong></p>
+<p>​        令 T 从起点到终点、每次改变一个步长，绘制出由 (横坐标，纵坐标) 所规定的点的轨迹。</p>
+<p><strong>举例</strong></p>
+<p>​        FOR T FROM 0 TO 2*PI STEP PI/50 DRAW (cos(T),  sin(T));</p>
+<p><strong>说明</strong></p>
+<p>​        该语句的作用是令 T 从 0 到 2*PI、步长 PI/50，绘制出各个点的坐标 (cos(T)，sin(T))，即一个单位圆。</p>
+<p><strong>注意</strong></p>
+<p>​        由于绘图系统的默认值是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ORIGIN IS (0,0);</span><br><span class="line"></span><br><span class="line">ROT IS 0;</span><br><span class="line"></span><br><span class="line">SCALE IS (1, 1);</span><br></pre></td></tr></table></figure>
+<p>​    所以实际绘制出的图形是在屏幕左上角的一个点。</p>
+<h3 id="比例设置-SCALE-语句"><a href="#比例设置-SCALE-语句" class="headerlink" title="比例设置(SCALE)语句"></a><strong>比例设置(SCALE)语句</strong></h3><p><strong>语法</strong></p>
+<p>​        SCALE IS (横坐标比例因子，纵坐标比例因子);</p>
+<p><strong>语义</strong></p>
+<p>​        设置横坐标和纵坐标的比例，并分别按照比例因子进行缩放。</p>
+<p><strong>举例</strong></p>
+<p>​        SCALE IS (100, 100);</p>
+<p><strong>说明</strong></p>
+<p>​        将横坐标和纵坐标的比例设置为 1:1，且放大 100 倍。</p>
+<p>​        若： SCALE IS (100, 100/3);</p>
+<p>​        则：横坐标和纵坐标的比例为 3:1</p>
+<h3 id="角度旋转-ROT-语句"><a href="#角度旋转-ROT-语句" class="headerlink" title="角度旋转(ROT)语句"></a><strong>角度旋转(ROT)语句</strong></h3><p><strong>语法</strong></p>
+<p>​        ROT IS 角度；</p>
+<p><strong>语义</strong></p>
+<p>​        逆时针旋转角度所规定的弧度值。具体计算公式：</p>
+<ul>
+<li>旋转后X=旋转前X*COS(角度)+旋转前Y*SIN(角度)</li>
+<li>旋转后Y=旋转前Y*COS(角度)-旋转前X*SIN(角度)</li>
+</ul>
+<p><strong>举例</strong></p>
+<p>​        ROT IS PI/2;</p>
+<p><strong>说明</strong></p>
+<p>​        逆时针旋转PI/2，即逆时针旋转90度。</p>
+<h3 id="注释语句"><a href="#注释语句" class="headerlink" title="注释语句"></a><strong>注释语句</strong></h3><p><strong>注释的作用</strong></p>
+<ul>
+<li>便于理解</li>
+<li>屏蔽暂时不需要的语句</li>
+</ul>
+<p><strong>语法</strong></p>
+<p>​        // This is a comment line</p>
+<p>​        或 -- 此行是注释</p>
+<p><strong>语义</strong></p>
+<p>​        // 或 -- 之后，直到行尾，均是注释</p>
+<h3 id="记号的语法和语义"><a href="#记号的语法和语义" class="headerlink" title="记号的语法和语义"></a><strong>记号的语法和语义</strong></h3><p><strong>记号的种类</strong></p>
+<p>​        常数、参数、函数、保留字、运算符、分隔符</p>
+<p><strong>&lt;1> 常数</strong></p>
+<p>​        常数字面量和标识符形式的常量名均称为常数。字面量的形式为普通的数值，如果没有小数部分，可以省略小数点。例如 2、 2.、 2.0 都是合法的常数。 标识符 PI、E 也是常数，它们分别代表圆周率和自然对数的底。常数不能有符号位，如 -1 和 +2 不是常数而是（一元运算的）表达式。</p>
+<p><strong>&lt;2> 参数</strong></p>
+<p>​        本作图语言中唯一的、已经被定义好的变量名 T 被称为参数，它也是一个表达式。由于作图语言中只有这唯一的变量，因此作图语言中无需变量或参数的声明和定义语句。</p>
+<p><strong>&lt;3> 函数（调用）</strong></p>
+<p>​        为简单起见，当前函数调用仅支持 Sin、Cos、Tan、Sqrt 以及 Exp 和 Ln。有兴趣的同学可以再加入其他函数。</p>
+<p><strong>&lt;4> 保留字</strong></p>
+<p>​        语句中具有固定含义的标识符，包括：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ORIGIN, SCALE, ROT, IS, TO,</span><br><span class="line"></span><br><span class="line">STEP, DRAW, FOR, FROM</span><br></pre></td></tr></table></figure>
+<p><strong>&lt;5> 运算符</strong></p>
+<p>​        PLUS, MINUS, MUL, DIV, POWER</p>
+<p>即        +           -           *         /         ** </p>
+<p><strong>&lt;6> 分隔符</strong></p>
+<p>​        SEMICO,  L_BRACKET,  R_BRACKET,  COMMA</p>
+<p>即          ;                   (                          )                    ,</p>
+<h1 id="开发环境及配置"><a href="#开发环境及配置" class="headerlink" title="开发环境及配置"></a>开发环境及配置</h1><p>​        采用C/C++程序设计语言使用 Visual Studio Community 2017 编写 Windows 桌面应用程序，分为三大模块：词法分析器、语法分析器和绘图解释器。</p>
+<h1 id="基本原理与解决思路"><a href="#基本原理与解决思路" class="headerlink" title="基本原理与解决思路"></a>基本原理与解决思路</h1><p>​        词法分析器用于识别出文件流中符合我们定义的记号，供语法分析器调用；语法分析器用于构造语法分析树，计算出表达式的值，包括原点坐标、旋转角度、横纵坐标比例和缩放大小，以及循环绘制语句的各项参数；绘图解释器，读取语法分析器产生的结果，计算出每一个点的 (x, y) 坐标，使用 “描点法” 绘制出完整的函数图像，并调用系统窗口显示相关的函数，以窗口的形式展示函数图像</p>
+<p>​        词法分析器将文件作为数据流进行处理，依次将数据流的一个字符取出，或者放回，按照实现构造的记号表识别文件流中的记号流，将其与设定的函数绘图语句的模式进行匹配，引出一个 GetToken() 接口被语法分析器调用。</p>
+<p>​        词法分析器作为一个子函数被语法分析器调用，读取记号的同时构建语法树，计算表达式的值，并将绘图所需的参数保存在相应的变量中。按照语句顺序，依次对每个记号进行分析，对于保留字，采用 MatchToken() 匹配成功后，对下一个记号进行分析，而对于其它的记号符号，则调用 Expression() 生成语法树，再用 GetExprValue() 递归下降计算出值，最后删除语法树。</p>
+<p>​        语法分析器在分析的过程中会计算表达式的值，将其储存到变量中调用系统的  SetPixel(hDC, x, y, black) 在窗口中的 (x, y) 坐标画一个黑色的点利用描点法的思想，在循环体中让参数 Parameter 从 Start 循环到 End 每次增加 Step，然后在每次循环中根据比例、 平移和旋转角度，计算每一个 (x, y)，在窗口中绘制点。</p>
+<p><img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/11.png" alt></p>
+<h1 id="关键类及主要方法"><a href="#关键类及主要方法" class="headerlink" title="关键类及主要方法"></a>关键类及主要方法</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Token_Type &#123; <span class="comment">//记号种类</span></span><br><span class="line">	ORIGIN, SCALE, ROT, IS, TO, <span class="comment">//保留字</span></span><br><span class="line">	STEP, DRAW, FOR, FROM,</span><br><span class="line">	T, <span class="comment">//参数</span></span><br><span class="line">	SEMICO, L_BRACKET, R_BRACKET, COMMA, <span class="comment">//分隔符号</span></span><br><span class="line">	PLUS, MINUS, MUL, DIV, POWER, <span class="comment">//运算符</span></span><br><span class="line">	FUNC, <span class="comment">//函数</span></span><br><span class="line">	CONST_ID, <span class="comment">//常数</span></span><br><span class="line">	NONTOKEN, <span class="comment">//空记号</span></span><br><span class="line">	ERRTOKEN <span class="comment">//出错记号</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Token</span> &#123;</span> <span class="comment">// 记号的数据结构</span></span><br><span class="line">	Token_Type type; <span class="comment">// 类别</span></span><br><span class="line">	<span class="keyword">char</span> *lexeme; <span class="comment">// 构成记号的字符串</span></span><br><span class="line">	<span class="keyword">double</span> value; <span class="comment">// 若为常数，则是常数的值</span></span><br><span class="line">	<span class="keyword">double</span>(*FuncPtr)(<span class="keyword">double</span>); <span class="comment">// 若为函数，则是函数的指针</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> Token TokenTab[] = &#123;</span><br><span class="line">	&#123; CONST_ID, <span class="string">"PI"</span>, <span class="number">3.1415926</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; CONST_ID, <span class="string">"E"</span>, <span class="number">2.71828</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; T, <span class="string">"T"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; FUNC, <span class="string">"SIN"</span>, <span class="number">0.0</span>, <span class="built_in">sin</span> &#125;,</span><br><span class="line">	&#123; FUNC, <span class="string">"COS"</span>, <span class="number">0.0</span>, <span class="built_in">cos</span> &#125;,	</span><br><span class="line">	&#123; FUNC, <span class="string">"TAN"</span>, <span class="number">0.0</span>, <span class="built_in">tan</span> &#125;,</span><br><span class="line">	&#123; FUNC, <span class="string">"LN"</span>, <span class="number">0.0</span>, <span class="built_in">log</span> &#125;,</span><br><span class="line">	&#123; FUNC, <span class="string">"EXP"</span>, <span class="number">0.0</span>, <span class="built_in">exp</span> &#125;,</span><br><span class="line">	&#123; FUNC, <span class="string">"SQRT"</span>, <span class="number">0.0</span>, <span class="built_in">sqrt</span> &#125;,</span><br><span class="line">	&#123; ORIGIN, <span class="string">"ORIGIN"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; SCALE, <span class="string">"SCALE"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,	</span><br><span class="line">	&#123; ROT, <span class="string">"ROT"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; IS, <span class="string">"IS"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; FOR, <span class="string">"FOR"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; FROM, <span class="string">"FROM"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; TO, <span class="string">"TO"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,</span><br><span class="line">	&#123; STEP, <span class="string">"STEP"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;,	</span><br><span class="line">	&#123; DRAW, <span class="string">"DRAW"</span>, <span class="number">0.0</span>, <span class="literal">NULL</span> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">extern</span> Token <span class="title">GetToken</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;<span class="comment">//获取一个记号</span></span><br><span class="line">	Token token;</span><br><span class="line">	<span class="keyword">int</span> Char;</span><br><span class="line">	<span class="built_in">memset</span>(&amp;token, <span class="number">0</span>, <span class="keyword">sizeof</span>(Token));</span><br><span class="line">	EmptyTokenString();</span><br><span class="line">	token.lexeme = TokenBuffer;</span><br><span class="line">	<span class="keyword">for</span> (;;)&#123;         <span class="comment">//过滤源程序中的空格、TAB、回车等</span></span><br><span class="line">		Char = GetChar();</span><br><span class="line">		<span class="keyword">if</span> (Char == EOF)</span><br><span class="line">		&#123;</span><br><span class="line">			token.type = NONTOKEN;</span><br><span class="line">			<span class="keyword">return</span> token;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (Char == <span class="string">'\n'</span>) LineNo++;</span><br><span class="line">		<span class="keyword">if</span> (!<span class="built_in">isspace</span>(Char)) <span class="keyword">break</span>;<span class="comment">// 空白字符，返回非0值不是空白字符，跳出for循环</span></span><br><span class="line">	&#125;</span><br><span class="line">	AddCharTokenString(Char);</span><br><span class="line">	<span class="comment">//若不是空格、TAB、回车、文件结束符等，则先加入到记号的字符缓冲区中</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">isalpha</span>(Char))&#123; <span class="comment">//若char是A-Za-z，则一定是函数、关键字、PI、E等。</span></span><br><span class="line">		<span class="keyword">for</span>(;;)&#123;</span><br><span class="line">			Char = GetChar();</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">isalnum</span>(Char)) <span class="comment">//判断Char是否为字母或者数字,是则返回非0，否则返回0;</span></span><br><span class="line">				AddCharTokenString(Char); <span class="comment">//Char是字母或者数字</span></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		BackChar(Char);</span><br><span class="line">		token = JudgeKeyToken(TokenBuffer);</span><br><span class="line">		token.lexeme = TokenBuffer;</span><br><span class="line">		<span class="keyword">return</span> token;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isdigit</span>(Char))&#123;     <span class="comment">//若是一个数字，则一定是常量</span></span><br><span class="line">		<span class="keyword">for</span> (;;)&#123;</span><br><span class="line">			Char = GetChar();</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">isdigit</span>(Char)) </span><br><span class="line">				AddCharTokenString(Char);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (Char == <span class="string">'.'</span>)&#123;</span><br><span class="line">			AddCharTokenString(Char);</span><br><span class="line">			<span class="keyword">for</span> (;;)&#123;</span><br><span class="line">				Char = GetChar();</span><br><span class="line">				<span class="keyword">if</span>(<span class="built_in">isdigit</span>(Char)) </span><br><span class="line">					AddCharTokenString(Char);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="comment">//end of if(Char == '.')</span></span><br><span class="line">		BackChar(Char); <span class="comment">//把预读的字符退回到输入源程序中</span></span><br><span class="line">		token.type = CONST_ID;</span><br><span class="line">		token.value = atof(TokenBuffer); <span class="comment">//把字符串转换成浮点数</span></span><br><span class="line">		<span class="keyword">return</span> token;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;            <span class="comment">//不是字母和数字，则一定是运算符或分隔符</span></span><br><span class="line">		<span class="keyword">switch</span> (Char)&#123;	</span><br><span class="line">		<span class="keyword">case</span> <span class="string">';'</span>:token.type = SEMICO;    <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'('</span>:token.type = L_BRACKET; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">')'</span>:token.type = R_BRACKET; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">','</span>:token.type = COMMA;     <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'+'</span>:token.type = PLUS;      <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">			Char = GetChar();</span><br><span class="line">			<span class="keyword">if</span> (Char == <span class="string">'-'</span>)&#123;</span><br><span class="line">				<span class="keyword">while</span> (Char != <span class="string">'\n'</span> &amp;&amp; Char != EOF) Char = GetChar();</span><br><span class="line">				BackChar(Char);</span><br><span class="line">				<span class="keyword">return</span> GetToken();</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				BackChar(Char);</span><br><span class="line">				token.type = MINUS;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">			Char = GetChar();</span><br><span class="line">			<span class="keyword">if</span> (Char == <span class="string">'/'</span>)&#123;		</span><br><span class="line">				<span class="keyword">while</span> (Char != <span class="string">'\n'</span> &amp;&amp; Char != EOF) Char = GetChar();</span><br><span class="line">				BackChar(Char);</span><br><span class="line">				<span class="keyword">return</span> GetToken();</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;	</span><br><span class="line">				BackChar(Char);</span><br><span class="line">				token.type = DIV;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">			Char = GetChar();</span><br><span class="line">			<span class="keyword">if</span> (Char == <span class="string">'*'</span>)&#123;</span><br><span class="line">				token.type = POWER;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;	</span><br><span class="line">				BackChar(Char);</span><br><span class="line">				token.type = MUL;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			token.type = ERRTOKEN;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;<span class="comment">// end of switch</span></span><br><span class="line">	&#125;<span class="comment">//end of else(不是字母和数字，则一定是符号)</span></span><br><span class="line">	<span class="keyword">return</span> token;</span><br><span class="line">&#125;<span class="comment">//end of GetToken</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintSyntaxTree</span><span class="params">(struct ExprNode *root, <span class="keyword">int</span> indent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	<span class="keyword">for</span> (temp = <span class="number">1</span>; temp &lt;= indent; temp++) <span class="built_in">printf</span>(<span class="string">"\t"</span>);<span class="comment">//缩进</span></span><br><span class="line">	<span class="keyword">switch</span> (root-&gt;OpCode)&#123;</span><br><span class="line">		<span class="keyword">case</span> PLUS:		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"+"</span>);								<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> MINUS:		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"-"</span>);								<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> MUL:		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"*"</span>);								<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> DIV:		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"/"</span>);								<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> POWER:		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"**"</span>);								<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> FUNC:		<span class="built_in">printf</span>(<span class="string">"%x\n"</span>, root-&gt;Content.CaseFunc.MathFuncPtr);	<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> CONST_ID:	<span class="built_in">printf</span>(<span class="string">"%f\n"</span>, root-&gt;Content.CaseConst);			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> T:			<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"T"</span>);								<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:		<span class="built_in">printf</span>(<span class="string">"Error Tree Node !\n"</span>);						<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (root-&gt;OpCode == CONST_ID || root-&gt;OpCode == T) <span class="comment">//叶子节点返回</span></span><br><span class="line">		<span class="keyword">return</span>;<span class="comment">//常数和参数只有叶子节点 常数：右值；参数：左值地址</span></span><br><span class="line">	<span class="keyword">if</span> (root-&gt;OpCode == FUNC)<span class="comment">//递归打印一个孩子节点</span></span><br><span class="line">		PrintSyntaxTree(root-&gt;Content.CaseFunc.Child, indent + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">else</span><span class="comment">//递归打印两个孩子节点</span></span><br><span class="line">	&#123;<span class="comment">//二元运算：左右孩子的内部节点</span></span><br><span class="line">		PrintSyntaxTree(root-&gt;Content.CaseOperator.Left, indent + <span class="number">1</span>);</span><br><span class="line">		PrintSyntaxTree(root-&gt;Content.CaseOperator.Right, indent + <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ForStatement</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> Start, End, Step;<span class="comment">//绘图起点、终点、步长</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ExprNode</span> *<span class="title">start_ptr</span>, *<span class="title">end_ptr</span>, *<span class="title">step_ptr</span>, *<span class="title">x_ptr</span>, *<span class="title">y_ptr</span>;</span></span><br><span class="line">	MatchToken(FOR);	</span><br><span class="line">	MatchToken(T);		</span><br><span class="line">	MatchToken(FROM);<span class="comment">//eg:for T from</span></span><br><span class="line"></span><br><span class="line">	start_ptr = Expression(); <span class="comment">//构造参数起点表达式的语法树</span></span><br><span class="line">	Tree_trace(start_ptr);</span><br><span class="line">	Start = GetExprValue(start_ptr);<span class="comment">//计算参数起点表达式的值</span></span><br><span class="line">	DelExprTree(start_ptr);<span class="comment">//释放参数起点语法树所占空间</span></span><br><span class="line"></span><br><span class="line">	MatchToken(TO);</span><br><span class="line">	end_ptr = Expression();<span class="comment">//构造参数终点表达式语法树</span></span><br><span class="line">	Tree_trace(end_ptr);</span><br><span class="line">	End = GetExprValue(end_ptr);<span class="comment">//计算参数终点表达式的值</span></span><br><span class="line">	DelExprTree(end_ptr);<span class="comment">//释放参数终点语法树所占空间</span></span><br><span class="line"></span><br><span class="line">	MatchToken(STEP);</span><br><span class="line">	step_ptr = Expression();<span class="comment">//构造参数步长表达式语法树</span></span><br><span class="line">	Tree_trace(step_ptr);</span><br><span class="line">	Step = GetExprValue(step_ptr);<span class="comment">//计算参数步长表达式的值</span></span><br><span class="line">	DelExprTree(step_ptr);<span class="comment">//释放参数步长语法树所占空间</span></span><br><span class="line"></span><br><span class="line">	MatchToken(DRAW);		</span><br><span class="line">	MatchToken(L_BRACKET);	</span><br><span class="line">	x_ptr = Expression(); Tree_trace(x_ptr);</span><br><span class="line">	MatchToken(COMMA);		</span><br><span class="line">	y_ptr = Expression(); Tree_trace(y_ptr);</span><br><span class="line">	MatchToken(R_BRACKET);</span><br><span class="line"></span><br><span class="line">	DrawLoop(Start, End, Step, x_ptr, y_ptr); <span class="comment">//绘制图形</span></span><br><span class="line">	DelExprTree(x_ptr);<span class="comment">//释放横坐标语法树所占空间</span></span><br><span class="line">	DelExprTree(y_ptr);<span class="comment">//释放纵坐标语法树所占空间</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="测试截图"><a href="#测试截图" class="headerlink" title="测试截图"></a>测试截图</h1><h2 id="Parsertest-cpp-进行词法分析测试"><a href="#Parsertest-cpp-进行词法分析测试" class="headerlink" title="Parsertest.cpp 进行词法分析测试"></a>Parsertest.cpp 进行词法分析测试</h2><p>​        我们的测试程序test.cpp与main.cpp中都存在main函数，所以我们在测试各模块功能的时候需要将其它部分从项目生成中排除</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"scanner.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	Token token;</span><br><span class="line">	InitScanner(<span class="string">"D:\\1.txt"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"记号类别    字符串      常数值      函数指针\n"</span>);	<span class="built_in">printf</span>(<span class="string">"____________________________________________\n"</span>);</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		token = GetToken();		<span class="comment">// 通过词法分析器获得一个记号</span></span><br><span class="line">		<span class="keyword">if</span> (token.type != NONTOKEN)	<span class="comment">// 打印记号的内容</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%4d,%12s,%12f,%12x\n"</span>,token.type, token.lexeme, token.value, token.FuncPtr);</span><br><span class="line">		<span class="keyword">else</span>	<span class="keyword">break</span>;			<span class="comment">// 源程序结束，退出循环</span></span><br><span class="line">	&#125;;</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	CloseScanner();		<span class="comment">// 关闭词法分析器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/5.png" alt></p>
+<h2 id="parsertest-cpp-进行语法分析测试"><a href="#parsertest-cpp-进行语法分析测试" class="headerlink" title="parsertest.cpp 进行语法分析测试"></a>parsertest.cpp 进行语法分析测试</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"parser.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">Parser</span><span class="params">(<span class="keyword">char</span> *SrcFilePtr)</span></span>;<span class="comment">//测试主程序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> *p;</span><br><span class="line">	p = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="number">20</span> * <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">	<span class="built_in">memset</span>(p, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">char</span>) * <span class="number">20</span>);</span><br><span class="line">	<span class="built_in">strcpy</span>(p, <span class="string">"D:\\1.txt"</span>);</span><br><span class="line">	Parser(p);<span class="comment">//调用parser进行语法分析</span></span><br><span class="line">	<span class="built_in">free</span>(p);</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        在进行这一部分的测试时，需要将 parser.cpp 中的 GetExprValue() 语句注释掉，将 ForStatement() 中的 DrawLoop(Start, End, Step, x_ptr, y_ptr) 注释掉，因为它们会调用 semantic.cpp 中的绘图解释器函数；将所有含 Expression() 的语句后面加上 Tree_trace(), 在控制台中打印语法树，它是宏定义 #define Tree_trace(x) PrintSyntaxTree(x,1)；</p>
+<p><img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/6.png" alt></p>
+<h2 id="绘图解释器的测试"><a href="#绘图解释器的测试" class="headerlink" title="绘图解释器的测试"></a>绘图解释器的测试</h2><p>首先需要将子系统从控制台调为窗口，因为在 main.cpp 中 winmain 窗口函数</p>
+<p><img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/7.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> APIENTRY <span class="title">WinMain</span><span class="params">(HINSTANCE hInstance,</span></span></span><br><span class="line"><span class="function"><span class="params">	HINSTANCE hPrevInstance,</span></span></span><br><span class="line"><span class="function"><span class="params">	LPSTR lpCmdLine,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> nCmdShow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">strcpy</span>(SrcFilePath, <span class="string">"D:\\1.txt"</span>);<span class="comment">//保存原文件路径</span></span><br><span class="line">	<span class="keyword">if</span> (PrepareWindow(hInstance, hPrevInstance, nCmdShow) != <span class="literal">true</span>)<span class="comment">//初始化窗口</span></span><br><span class="line">	&#123;</span><br><span class="line">		MessageBox(<span class="literal">NULL</span>, <span class="string">"窗口初始化失败"</span>, <span class="string">"错误"</span>, MB_OK);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//检查要分析的源程序文件</span></span><br><span class="line">	<span class="keyword">if</span> (!CheckSrcFile(SrcFilePath)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//调用绘图语言解释器</span></span><br><span class="line">	Parser(SrcFilePath);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//进入window消息循环</span></span><br><span class="line">	MSG Msg;</span><br><span class="line">	<span class="keyword">while</span> (GetMessage(&amp;Msg, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">	&#123;</span><br><span class="line">		TranslateMessage(&amp;Msg);</span><br><span class="line">		DispatchMessage(&amp;Msg);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> Msg.wParam;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/8.png" alt></p>
+<h2 id="遇到的问题及解决办法"><a href="#遇到的问题及解决办法" class="headerlink" title="遇到的问题及解决办法"></a>遇到的问题及解决办法</h2><p>​        在 scanner.h 文件中，出现了 const char*  类型的值不能用于初始化 char*  类型的实体错误</p>
+<p><img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/4.png" alt></p>
+<p>​        可以看到报错是C2400，找到的解决方法是关闭符合模式</p>
+<p>​                位置在项目属性中的c/c++>>语言>>符合模式</p>
+<p><img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/1.png" alt></p>
+<p>​        遇见了 LNK2019 外部符号错误，这里是由于 main.cpp 中的窗口函数的缘故需要窗口子系统</p>
+<p><img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/2.png" alt></p>
+<p>​        LNK2001：无法解析的struct HDC__* hDC，这个错误是semantic.h中的外部引用extern HDC hDC出现的问题，只需要在semantic.cpp中声明一下HDC hDC即可</p>
+<p><img src="/2019/05/06/编译原理：简单绘图语言解释器的实现/10.png" alt></p>
+<h1 id="附：测试视频及项目代码"><a href="#附：测试视频及项目代码" class="headerlink" title="附：测试视频及项目代码"></a>附：<a href="编译原理-简单绘图语言解释器.rar">测试视频及项目代码</a></h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    HengYuD
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/" title="编译原理：简单绘图语言解释器的实现">http://yoursite.com/2019/05/06/编译原理：简单绘图语言解释器的实现/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/简单绘图语言解释器/" rel="tag"># 简单绘图语言解释器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/26/Python实现hangman游戏/" rel="next" title="Python实现hangman游戏">
+                <i class="fa fa-chevron-left"></i> Python实现hangman游戏
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="HengYuD">
+            
+              <p class="site-author-name" itemprop="name">HengYuD</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HengYuD" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:HengYuDD@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ama666.cn/" title="ama666" target="_blank">ama666</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为函数绘图语言编写一个解释器。"><span class="nav-number">1.</span> <span class="nav-text">为函数绘图语言编写一个解释器。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句原则"><span class="nav-number">1.2.</span> <span class="nav-text">语句原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句的语法与语义"><span class="nav-number">1.3.</span> <span class="nav-text">语句的语法与语义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环绘图（FOR-DRAW）语句"><span class="nav-number">1.4.</span> <span class="nav-text">循环绘图（FOR-DRAW）语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比例设置-SCALE-语句"><span class="nav-number">1.4.1.</span> <span class="nav-text">比例设置(SCALE)语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#角度旋转-ROT-语句"><span class="nav-number">1.4.2.</span> <span class="nav-text">角度旋转(ROT)语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释语句"><span class="nav-number">1.4.3.</span> <span class="nav-text">注释语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记号的语法和语义"><span class="nav-number">1.4.4.</span> <span class="nav-text">记号的语法和语义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发环境及配置"><span class="nav-number">2.</span> <span class="nav-text">开发环境及配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理与解决思路"><span class="nav-number">3.</span> <span class="nav-text">基本原理与解决思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键类及主要方法"><span class="nav-number">4.</span> <span class="nav-text">关键类及主要方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试截图"><span class="nav-number">5.</span> <span class="nav-text">测试截图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Parsertest-cpp-进行词法分析测试"><span class="nav-number">5.1.</span> <span class="nav-text">Parsertest.cpp 进行词法分析测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parsertest-cpp-进行语法分析测试"><span class="nav-number">5.2.</span> <span class="nav-text">parsertest.cpp 进行语法分析测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘图解释器的测试"><span class="nav-number">5.3.</span> <span class="nav-text">绘图解释器的测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题及解决办法"><span class="nav-number">5.4.</span> <span class="nav-text">遇到的问题及解决办法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附：测试视频及项目代码"><span class="nav-number">6.</span> <span class="nav-text">附：测试视频及项目代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HengYuD</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">16k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("oI89taY80uLQcIrD5a7LyGAw-gzGzoHsz", "cdfkhrrL2XoiYLRga7PWjX2k");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
