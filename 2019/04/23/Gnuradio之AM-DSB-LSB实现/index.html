@@ -92,30 +92,30 @@
 <meta name="keywords" content="Gnuradio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gnuradio之AM-DSB-LSB实现">
-<meta property="og:url" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/index.html">
+<meta property="og:url" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/index.html">
 <meta property="og:site_name" content="HengYuD">
 <meta property="og:description" content="实验目的利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：  AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调  并通过仿真结果验证其频谱的正确性。 实验原理通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 实验步骤可能使用的模块有”Signal Source、 Multiply Const（乘以常系数）、Add Co">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/1.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/13.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/2.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/16.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/14.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/15.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/17.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/20.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/19.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/19.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/21.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/22.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/23.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/24.png">
-<meta property="og:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/25.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/1.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/13.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/2.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/16.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/14.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/15.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/17.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/20.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/19.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/19.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/21.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/22.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/23.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/24.png">
+<meta property="og:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/25.png">
 <meta property="og:updated_time" content="2019-04-23T08:35:42.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gnuradio之AM-DSB-LSB实现">
 <meta name="twitter:description" content="实验目的利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：  AM 调制和控制调幅指数 DSB 调制和解调 LSB 调制和解调  并通过仿真结果验证其频谱的正确性。 实验原理通过控制载波、设置合理的滤波器，来观察幅度调制信号的频谱变化情况。 实验步骤可能使用的模块有”Signal Source、 Multiply Const（乘以常系数）、Add Co">
-<meta name="twitter:image" content="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/1.png">
+<meta name="twitter:image" content="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/1.png">
 
 
 
@@ -145,7 +145,7 @@
 
 
 
-  <link rel="canonical" href="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/">
+  <link rel="canonical" href="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/">
 
 
 
@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/">
+    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HengYuD">
@@ -525,7 +525,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/" title="Gnuradio之AM-DSB-LSB实现">http://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/</a>
+    <a href="https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/" title="Gnuradio之AM-DSB-LSB实现">https://hengyud.cn/2019/04/23/Gnuradio之AM-DSB-LSB实现/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
