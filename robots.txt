@@ -12,5 +12,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.hengyud.cn/sitemap.xml
-Sitemap: http://www.hengyud.cn/baidusitemap.xml
+Sitemap: https://www.hengyud.cn/sitemap.xml
+Sitemap: https://www.hengyud.cn/baidusitemap.xml
