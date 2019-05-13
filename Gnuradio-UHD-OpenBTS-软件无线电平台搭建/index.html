@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon1_32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1_16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="OpenBTS,">
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="HengYuD" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Gnuradio + UHD + OpenBTS 软件无线电平台搭建环境ubuntu 16.04 (14.04) ubuntu 18 版本在后面会在装 OpenBTS 时因为 python-software-properties 依赖的问题卡住 换源并更新软件源/etc/apt/sources.list 路径下  推荐使用清华的源，旁边也有自动选择最快的服务器的选项 如果是在终端下进行换源则别忘了">
+<meta name="keywords" content="OpenBTS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gnuradio + UHD + OpenBTS 软件无线电平台搭建">
+<meta property="og:url" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/index.html">
+<meta property="og:site_name" content="HengYuD">
+<meta property="og:description" content="Gnuradio + UHD + OpenBTS 软件无线电平台搭建环境ubuntu 16.04 (14.04) ubuntu 18 版本在后面会在装 OpenBTS 时因为 python-software-properties 依赖的问题卡住 换源并更新软件源/etc/apt/sources.list 路径下  推荐使用清华的源，旁边也有自动选择最快的服务器的选项 如果是在终端下进行换源则别忘了">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/11.png">
+<meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/3.png">
+<meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/12.png">
+<meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/13.png">
+<meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/10.png">
+<meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/1.png">
+<meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/9.png">
+<meta property="og:updated_time" content="2019-05-13T14:21:33.894Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gnuradio + UHD + OpenBTS 软件无线电平台搭建">
+<meta name="twitter:description" content="Gnuradio + UHD + OpenBTS 软件无线电平台搭建环境ubuntu 16.04 (14.04) ubuntu 18 版本在后面会在装 OpenBTS 时因为 python-software-properties 依赖的问题卡住 换源并更新软件源/etc/apt/sources.list 路径下  推荐使用清华的源，旁边也有自动选择最快的服务器的选项 如果是在终端下进行换源则别忘了">
+<meta name="twitter:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/11.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/">
+
+
+
+
+
+  <title>Gnuradio + UHD + OpenBTS 软件无线电平台搭建 | HengYuD</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HengYuD</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HengYuD">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HengYuD">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gnuradio + UHD + OpenBTS 软件无线电平台搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T22:12:52+08:00">
+                2019-05-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-13T22:21:33+08:00">
+                2019-05-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件无线电/" itemprop="url" rel="index">
+                    <span itemprop="name">软件无线电</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/" class="leancloud_visitors" data-flag-title="Gnuradio + UHD + OpenBTS 软件无线电平台搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Gnuradio-UHD-OpenBTS-软件无线电平台搭建"><a href="#Gnuradio-UHD-OpenBTS-软件无线电平台搭建" class="headerlink" title="Gnuradio + UHD + OpenBTS 软件无线电平台搭建"></a>Gnuradio + UHD + OpenBTS 软件无线电平台搭建</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>ubuntu 16.04 (14.04)</p>
+<p>ubuntu 18 版本在后面会在装 OpenBTS 时因为 python-software-properties 依赖的问题卡住</p>
+<h2 id="换源并更新软件源"><a href="#换源并更新软件源" class="headerlink" title="换源并更新软件源"></a>换源并更新软件源</h2><p><code>/etc/apt/sources.list</code> 路径下</p>
+<p><img src="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/11.png" alt="11"></p>
+<p>推荐使用清华的源，旁边也有自动选择最快的服务器的选项</p>
+<p>如果是在终端下进行换源则别忘了更新</p>
+<p> <code>sudo apt-get update</code></p>
+<h2 id="Gnuradio"><a href="#Gnuradio" class="headerlink" title="Gnuradio"></a>Gnuradio</h2><p>GNURadio 安装包下载地址 <a href="https://www.gnuradio.org/releases/gnuradio/" target="_blank" rel="noopener">https://www.gnuradio.org/releases/gnuradio/</a></p>
+<p>选择 tar.gz 格式的安装包，这里我选用的是 <a href="https://www.gnuradio.org/releases/gnuradio/gnuradio-3.7.9.tar.gz" target="_blank" rel="noopener">Gnuradio3.7.9</a>  可用 wget 下载</p>
+<p>1、安装各种依赖库（可能不限于下面这些库）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install git swig cmake doxygen build-essential libboost-all-dev libtool libusb-1.0-0 libusb-1.0-0-dev libudev-dev libncurses5-dev libfftw3-bin libfftw3-dev libfftw3-doc libcppunit-1.13-0 libcppunit-dev libcppunit-doc ncurses-bin cpufrequtils python-numpy python-numpy-doc python-numpy-dbg python-scipy python-docutils qt4-bin-dbg qt4-default qt4-doc libqt4-dev libqt4-dev-bin python-qt4 python-qt4-dbg python-qt4-dev python-qt4-doc python-qt4-doc libfftw3-bin libfftw3-dev libfftw3-doc ncurses-bin libncurses5 libncurses5-dev libncurses5-dbg   libfontconfig1-dev libxrender-dev libpulse-dev swig g++ automake autoconf libtool python-dev libfftw3-dev libcppunit-dev libboost-all-dev libusb-dev libusb-1.0-0-dev fort77 libsdl1.2-dev python-wxgtk2.8 git-core libqt4-dev python-numpy ccache python-opengl libgsl0-dev python-cheetah python-mako python-lxml doxygen qt4-default qt4-dev-tools libusb-1.0-0-dev libqwt5-qt4-dev libqwtplot3d-qt4-dev pyqt4-dev-tools python-qwt5-qt4 cmake git-core wget libxi-dev gtk2-engines-pixbuf r-base-dev python-tk liborc-0.4-0 liborc-0.4-dev libasound2-dev python-gtk2 libzmq1 libzmq-dev python-requests python-sphinx libcomedi-dev python-sip \pkg-config libxrender-dev python-sip-dev \libqt4-opengl-dev</span><br></pre></td></tr></table></figure>
+<p>2、进入安装包下载目录，并将安装包解压到 /usr/local/ 目录下（root 模式）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf gnuradio.3.7.9.tar.gz -C /usr/local</span><br><span class="line">cd /usr/local/gnuradio-3.7.9/</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../</span><br><span class="line">make</span><br><span class="line">sudo make install </span><br><span class="line">sudo ldconfig</span><br><span class="line"><span class="meta">#</span><span class="bash">安装完毕输入</span></span><br><span class="line">sudo gnuradio-companion #启动Gnuradio</span><br></pre></td></tr></table></figure>
+<p>3、如果想省事的话，可以直接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnuradio</span><br></pre></td></tr></table></figure>
+<h2 id="UHD-安装"><a href="#UHD-安装" class="headerlink" title="UHD 安装"></a>UHD 安装</h2><p>UHD 我使用的是 <a href="https://github.com/EttusResearch/uhd/archive/release_003_009_005.tar.gz" target="_blank" rel="noopener">release_003_009_005</a> ，可能因为 uhd 在3.10 左右的版本做的一个改动会导致在编译 OpenBTS <code>./build.sh B210</code> 时无法进行下去</p>
+<p>1、仅当需要连接真实 USRP 硬件设备时，才需要安装 UHD 固件</p>
+<p>2、从 Ettus Research 官网下载适合的 UHD release版本 </p>
+<p><a href="http://github.com/EttusResearch/UHD/tags" target="_blank" rel="noopener">http://github.com/EttusResearch/UHD/tags</a> </p>
+<p>3、安装一些库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libboost-all-dev libusb-1.0-0-dev python-mako doxygen python-docutils cmake build-essential</span><br></pre></td></tr></table></figure>
+<p>4、将下载好的 UHD release 放到某个路径 <path></path>下面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;path&gt;/host</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldcnfig</span><br></pre></td></tr></table></figure>
+<p>5、安装完成，下载 UHD 固件，可以使用自带的脚本下载对应的固件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/lib/uhd/utils</span><br><span class="line">sudo ./uhd_images_downloader.py</span><br></pre></td></tr></table></figure>
+<p>若出现 <code>ImportError: No module named requests</code></p>
+<p>这时安装 <code>requests</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<p>若显示 pip 尚未安装，则西安安装 pip，再安装 requests</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python-pip</span><br><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<p>安装完毕接着执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ./uhd_images_downloader.py</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="meta">#</span><span class="bash">提示如下</span></span><br><span class="line">Images successfully installed to:/usr/local/share/uhd/images</span><br></pre></td></tr></table></figure>
+<p>连接真实 USRP 硬件后， 在终端键入 uhd_find_devices 会显示当前链接的 USRP 的参数，说名 UHD 安装成功</p>
+<p><img src="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/3.png" alt="3"></p>
+<h2 id="OpenBTS-安装"><a href="#OpenBTS-安装" class="headerlink" title="OpenBTS 安装"></a>OpenBTS 安装</h2><p>1、安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install software-properties-common python-software-properties git</span><br></pre></td></tr></table></figure>
+<p>2、下载源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir openbts &amp;&amp; cd openbts</span><br><span class="line">git clong https://github.com/RangeNetworks/dev.git</span><br><span class="line">cd dev</span><br><span class="line">./clone.sh</span><br><span class="line">./switchto.sh master #选择分支</span><br><span class="line">./build.sh B210   #编译</span><br></pre></td></tr></table></figure>
+<p>3、<code>./build.sh B210</code> 可能会遇到一些问题</p>
+<p><strong>libzmq5 unable to install</strong></p>
+<p>​        *原因：OpenBTS对Ubuntu 16.04的支持导致某些依赖版本较高</p>
+<p>​        *解决方法：把 build.sh 中的 libzmq5 改成 libzmq3，重新执行 ./build.sh B210</p>
+<p><strong>openbts boost/config.hpp: No such file or directory</strong></p>
+<p>​        *解决方法：sudo apt-get install libboost-dev</p>
+<p><strong>‘class uhd::rx_Streamer’ has no member named ‘issue_stream_cmd’, ‘class uhd::tx_Streamer’ has no member named ‘recv_async_msg’</strong></p>
+<p>​        *解决方法：安装Ettus Ubuntu PPA中的libuhd-dev libuhd003 uhd-host</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:ettusresearch/uhd</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libuhd-dev libuhd003 uhd-host</span><br></pre></td></tr></table></figure>
+<p><strong>/usr/bin/ld: cannot find -lboost_system</strong></p>
+<p>​        <em>解决方法：sudo ldconfig<br>​        </em>备用方法：sudo apt-get install libboost-system1.54-dev</p>
+<p>4、安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd BUILDS</span><br><span class="line">sudo dpkg -i [编译成功时间]/*.deb</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.建议先安装依赖deb包(liba53, libcoredumper)，接下来安装应用deb包(range-asterisk, sipauthserve, smqueue, openbts)，最后安装配置deb包(range-asterisk-config, range-configs)</span><br><span class="line">b.若配置deb包的配置文件与已安装应用配置文件冲突，选择配置deb包的文件</span><br><span class="line">c.如遇依赖问题，无法安装某些deb包，使用 sudo apt-get -f install</span><br></pre></td></tr></table></figure>
+<p>5|、启动/停止 OpenBTS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo start/stop sipauthserve</span><br><span class="line">sudo start/stop smqueue</span><br><span class="line">sudo start/stop openbts</span><br><span class="line">sudo start/stop asterisk</span><br></pre></td></tr></table></figure>
+<p><img src="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/12.png" alt="12"></p>
+<p>发现 ubuntu 不再支持 upstart 的启动管理方式了</p>
+<p>于是用 systemctl 启动</p>
+<p><img src="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/13.png" alt="13"></p>
+<p>发现缺少 <code>.service</code> 文件</p>
+<p><a href="openbts_systemd_scripts.zip">openbts_systemd_scripts</a></p>
+<p>解压后将其中 systemd 中的四个 <code>.service</code> 文件复制到 <code>/etc/systemd/system/</code> </p>
+<p>然后 <code>openbts-cli.sh</code> 、<code>openbts-start.sh</code> 、<code>openbts-stop.sh</code> 三个文件分别为客户端，启动服务，停止服务的执行脚本</p>
+<p><img src="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/10.png" alt="10"></p>
+<p>可以看后四项服务的 PID 则说明服务已启动</p>
+<p>6、OpenBTS 控制终端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /OpenBTS</span><br><span class="line">#sudo ./OpenBTS </span><br><span class="line">sudo ./OpenBTSCLI #OpenBTSCLI 需要 OpenBTS 先行启动</span><br></pre></td></tr></table></figure>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>-必须采用 su 用户才可以 open USB 之后再运行 uhd_usrp_probe 成功烧写固件和 FPGA </p>
+<p>-OpenBTS及asterisk等应用默认开机启动，若系统安装其他GSM相关应用，如gr-gsm，注意sudo stop openbts，避连接B210时冲突</p>
+<p>-若uhd_usrp_probe或sudo ./OpenBTSCLI提示无设备，拔插再试</p>
+<p>-本实验中使用的 B210 的 USB 接口是3.0，所以虚拟机 USB 兼容性设为 3.0</p>
+<p><img src="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/1.png" alt="1"></p>
+<p>-若在开放注册的时候出现下图警告，则需要调整增益，将 RxGain 降低</p>
+<p><img src="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/9.png" alt="9"></p>
+<p>设备连接以及固件烧录过程如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">hengyud@ubuntu:/OpenBTS$ sudo -i</span><br><span class="line">root@ubuntu:~# uhd_find_devices </span><br><span class="line">linux; GNU C++ version 5.4.0 20160609; Boost_105800; UHD_003.009.005-0-unknown</span><br><span class="line"></span><br><span class="line">--------------------------------------------------</span><br><span class="line">-- UHD Device 0</span><br><span class="line">--------------------------------------------------</span><br><span class="line">Device Address:</span><br><span class="line">    type: b200</span><br><span class="line">    name: MyB210</span><br><span class="line">    serial: 30F7D88</span><br><span class="line">    product: B210</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@ubuntu:~# uhd_usrp_probe</span><br><span class="line">linux; GNU C++ version 5.4.0 20160609; Boost_105800; UHD_003.009.005-0-unknown</span><br><span class="line"></span><br><span class="line">-- Detected Device: B210</span><br><span class="line">-- Loading FPGA image: /usr/local/share/uhd/images/usrp_b210_fpga.bin... done</span><br><span class="line">-- Operating over USB 3.</span><br><span class="line">-- Detecting internal GPSDO.... No GPSDO found</span><br><span class="line">-- Initialize CODEC control...</span><br><span class="line">-- Initialize Radio control...</span><br><span class="line">-- Performing register loopback test... pass</span><br><span class="line">-- Performing register loopback test... pass</span><br><span class="line">-- Performing CODEC loopback test... pass</span><br><span class="line">-- Performing CODEC loopback test... pass</span><br><span class="line">-- Asking for clock rate 16.000000 MHz... </span><br><span class="line">-- Actually got clock rate 16.000000 MHz.</span><br><span class="line">-- Performing timer loopback test... pass</span><br><span class="line">-- Performing timer loopback test... pass</span><br><span class="line">-- Setting master clock rate selection to &apos;automatic&apos;.</span><br><span class="line">  _____________________________________________________</span><br><span class="line"> /</span><br><span class="line">|       Device: B-Series Device</span><br><span class="line">|     _____________________________________________________</span><br><span class="line">|    /</span><br><span class="line">|   |       Mboard: B210</span><br><span class="line">|   |   revision: 4</span><br><span class="line">|   |   product: 2</span><br><span class="line">|   |   serial: 30F7D88</span><br><span class="line">|   |   name: MyB210</span><br><span class="line">|   |   FW Version: 8.0</span><br><span class="line">|   |   FPGA Version: 13.0</span><br><span class="line">|   |   </span><br><span class="line">|   |   Time sources:  none, internal, external, gpsdo</span><br><span class="line">|   |   Clock sources: internal, external, gpsdo</span><br><span class="line">|   |   Sensors: ref_locked</span><br><span class="line">|   |     _____________________________________________________</span><br><span class="line">|   |    /</span><br><span class="line">|   |   |       RX DSP: 0</span><br><span class="line">|   |   |   Freq range: -8.000 to 8.000 MHz</span><br><span class="line">|   |     _____________________________________________________</span><br><span class="line">|   |    /</span><br><span class="line">|   |   |       RX DSP: 1</span><br><span class="line">|   |   |   Freq range: -8.000 to 8.000 MHz</span><br><span class="line">|   |     _____________________________________________________</span><br><span class="line">|   |    /</span><br><span class="line">|   |   |       RX Dboard: A</span><br><span class="line">|   |   |     _____________________________________________________</span><br><span class="line">|   |   |    /</span><br><span class="line">|   |   |   |       RX Frontend: A</span><br><span class="line">|   |   |   |   Name: FE-RX2</span><br><span class="line">|   |   |   |   Antennas: TX/RX, RX2</span><br><span class="line">|   |   |   |   Sensors: temp, rssi, lo_locked</span><br><span class="line">|   |   |   |   Freq range: 50.000 to 6000.000 MHz</span><br><span class="line">|   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB</span><br><span class="line">|   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz</span><br><span class="line">|   |   |   |   Connection Type: IQ</span><br><span class="line">|   |   |   |   Uses LO offset: No</span><br><span class="line">|   |   |     _____________________________________________________</span><br><span class="line">|   |   |    /</span><br><span class="line">|   |   |   |       RX Frontend: B</span><br><span class="line">|   |   |   |   Name: FE-RX1</span><br><span class="line">|   |   |   |   Antennas: TX/RX, RX2</span><br><span class="line">|   |   |   |   Sensors: temp, rssi, lo_locked</span><br><span class="line">|   |   |   |   Freq range: 50.000 to 6000.000 MHz</span><br><span class="line">|   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB</span><br><span class="line">|   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz</span><br><span class="line">|   |   |   |   Connection Type: IQ</span><br><span class="line">|   |   |   |   Uses LO offset: No</span><br><span class="line">|   |   |     _____________________________________________________</span><br><span class="line">|   |   |    /</span><br><span class="line">|   |   |   |       RX Codec: A</span><br><span class="line">|   |   |   |   Name: B210 RX dual ADC</span><br><span class="line">|   |   |   |   Gain Elements: None</span><br><span class="line">|   |     _____________________________________________________</span><br><span class="line">|   |    /</span><br><span class="line">|   |   |       TX DSP: 0</span><br><span class="line">|   |   |   Freq range: -8.000 to 8.000 MHz</span><br><span class="line">|   |     _____________________________________________________</span><br><span class="line">|   |    /</span><br><span class="line">|   |   |       TX DSP: 1</span><br><span class="line">|   |   |   Freq range: -8.000 to 8.000 MHz</span><br><span class="line">|   |     _____________________________________________________</span><br><span class="line">|   |    /</span><br><span class="line">|   |   |       TX Dboard: A</span><br><span class="line">|   |   |     _____________________________________________________</span><br><span class="line">|   |   |    /</span><br><span class="line">|   |   |   |       TX Frontend: A</span><br><span class="line">|   |   |   |   Name: FE-TX2</span><br><span class="line">|   |   |   |   Antennas: TX/RX</span><br><span class="line">|   |   |   |   Sensors: temp, lo_locked</span><br><span class="line">|   |   |   |   Freq range: 50.000 to 6000.000 MHz</span><br><span class="line">|   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB</span><br><span class="line">|   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz</span><br><span class="line">|   |   |   |   Connection Type: IQ</span><br><span class="line">|   |   |   |   Uses LO offset: No</span><br><span class="line">|   |   |     _____________________________________________________</span><br><span class="line">|   |   |    /</span><br><span class="line">|   |   |   |       TX Frontend: B</span><br><span class="line">|   |   |   |   Name: FE-TX1</span><br><span class="line">|   |   |   |   Antennas: TX/RX</span><br><span class="line">|   |   |   |   Sensors: temp, lo_locked</span><br><span class="line">|   |   |   |   Freq range: 50.000 to 6000.000 MHz</span><br><span class="line">|   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB</span><br><span class="line">|   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz</span><br><span class="line">|   |   |   |   Connection Type: IQ</span><br><span class="line">|   |   |   |   Uses LO offset: No</span><br><span class="line">|   |   |     _____________________________________________________</span><br><span class="line">|   |   |    /</span><br><span class="line">|   |   |   |       TX Codec: A</span><br><span class="line">|   |   |   |   Name: B210 TX dual DAC</span><br><span class="line">|   |   |   |   Gain Elements: None</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">hengyud@ubuntu:/OpenBTS$ sudo ./OpenBTS</span><br><span class="line">ALERT 43213:43213 2019-05-12T00:37:07.6 OpenBTS.cpp:595:main: OpenBTS (re)starting, ver 5.0-master build date/time 2019-04-28T22:47:15</span><br><span class="line">ALERT 43213:43213 2019-05-12T00:37:07.6 OpenBTS.cpp:596:main: OpenBTS reading config file /etc/OpenBTS/OpenBTS.db</span><br><span class="line">1557646627.677025 140203525388096: </span><br><span class="line"></span><br><span class="line">OpenBTS</span><br><span class="line">Copyright 2008, 2009, 2010 Free Software Foundation, Inc.</span><br><span class="line">Copyright 2010 Kestrel Signal Processing, Inc.</span><br><span class="line">Copyright 2011, 2012, 2013, 2014 Range Networks, Inc.</span><br><span class="line">Release 5.0-master+646bb6e79f CommonLibs:76b71d509b P formal build date 2019-04-28T22:41:36</span><br><span class="line">&quot;OpenBTS&quot; is a registered trademark of Range Networks, Inc.</span><br><span class="line"></span><br><span class="line">Contributors:</span><br><span class="line">  Range Networks, Inc.:</span><br><span class="line">    David Burgess, Harvind Samra, Donald Kirker, Doug Brown,</span><br><span class="line">    Pat Thompson, Kurtis Heimerl, Michael Iedema, Dave Gotwisner</span><br><span class="line">  Kestrel Signal Processing, Inc.:</span><br><span class="line">    David Burgess, Harvind Samra, Raffi Sevlian, Roshan Baliga</span><br><span class="line">  GNU Radio:</span><br><span class="line">    Johnathan Corgan</span><br><span class="line">  Others:</span><br><span class="line">    Anne Kwong, Jacob Appelbaum, Joshua Lackey, Alon Levy</span><br><span class="line">    Alexander Chemeris, Alberto Escudero-Pascual</span><br><span class="line">Incorporated L/GPL libraries and components:</span><br><span class="line">  libortp, LGPL, 2.1 Copyright 2001 Simon MORLAT simon.morlat@linphone.org</span><br><span class="line">  libusb, LGPL 2.1, various copyright holders, www.libusb.org</span><br><span class="line">  libzmq, LGPL 3:</span><br><span class="line">      Copyright (c) 2009-2011 250bpm s.r.o.</span><br><span class="line">      Copyright (c) 2011 Botond Ballo</span><br><span class="line">      Copyright (c) 2007-2009 iMatix Corporation</span><br><span class="line">Incorporated BSD/MIT-style libraries and components:</span><br><span class="line">  A5/1 Pedagogical Implementation, Simplified BSD License, Copyright 1998-1999 Marc Briceno, Ian Goldberg, and David Wagner</span><br><span class="line">  JsonBox, Copyright 2011 Anhero Inc.</span><br><span class="line">  Google Core Dumper, BSD 3-Clause License, Copyright (c) 2005-2007, Google Inc.</span><br><span class="line">Incorporated public domain libraries and components:</span><br><span class="line">  sqlite3, released to public domain 15 Sept 2001, www.sqlite.org</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">This program comes with ABSOLUTELY NO WARRANTY.</span><br><span class="line"></span><br><span class="line">Use of this software may be subject to other legal restrictions,</span><br><span class="line">including patent licensing and radio spectrum licensing.</span><br><span class="line">All users of this software are expected to comply with applicable</span><br><span class="line">regulations and laws.  See the LEGAL file in the source code for</span><br><span class="line">more information.</span><br><span class="line"></span><br><span class="line">Note to US Government Users:</span><br><span class="line"> The OpenBTS software applications and associated documentation are &quot;Commercial</span><br><span class="line"> Item(s),&quot; as that term is defined at 48 C.F.R. Section 2.101, consisting of</span><br><span class="line"> &quot;Commercial Computer Software&quot; and &quot;Commercial Computer Software Documentation,&quot;</span><br><span class="line"> as such terms are used in 48 C.F.R. 12.212 or 48 C.F.R. 227.7202, as</span><br><span class="line"> applicable. Consistent with 48 C.F.R. 12.212 or 48 C.F.R. Sections 227.7202-1</span><br><span class="line"> through 227.7202-4, as applicable, the Commercial Computer Software and</span><br><span class="line"> Commercial Computer Software Documentation are being licensed to U.S. Government</span><br><span class="line"> end users (a) only as Commercial Items and (b) with only those rights as are</span><br><span class="line"> granted to all other end users pursuant to the terms and conditions of</span><br><span class="line"> Range Networks&apos; software licenses and master customer agreement.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1557646627.703102 140203525388096: </span><br><span class="line">Starting the system...</span><br><span class="line">ALERT 43213:43220 2019-05-12T00:37:12.7 OpenBTS.cpp:174:startTransceiver: starting transceiver ./transceiver with 1 ARFCNs</span><br><span class="line">linux; GNU C++ version 5.4.0 20160609; Boost_105800; UHD_003.009.005-0-unknown</span><br><span class="line"></span><br><span class="line">Using internal frequency reference</span><br><span class="line">-- Detected Device: B210</span><br><span class="line">-- Operating over USB 2.</span><br><span class="line">-- Initialize CODEC control...</span><br><span class="line">-- Initialize Radio control...</span><br><span class="line">-- Performing register loopback test... pass</span><br><span class="line">-- Performing register loopback test... pass</span><br><span class="line">-- Performing CODEC loopback test... pass</span><br><span class="line">-- Performing CODEC loopback test... pass</span><br><span class="line">-- Asking for clock rate 16.000000 MHz... </span><br><span class="line">-- Actually got clock rate 16.000000 MHz.</span><br><span class="line">-- Performing timer loopback test... pass</span><br><span class="line">-- Performing timer loopback test... pass</span><br><span class="line">-- Setting master clock rate selection to &apos;automatic&apos;.</span><br><span class="line">-- Asking for clock rate 32.000000 MHz... </span><br><span class="line">-- Actually got clock rate 32.000000 MHz.</span><br><span class="line">-- Performing timer loopback test... pass</span><br><span class="line">-- Performing timer loopback test... pass</span><br><span class="line">-- Asking for clock rate 26.000000 MHz... </span><br><span class="line">-- Actually got clock rate 26.000000 MHz.</span><br><span class="line">-- Performing timer loopback test... pass</span><br><span class="line">-- Performing timer loopback test... pass</span><br><span class="line">1557646638.143648 140203525388096: </span><br><span class="line">system ready</span><br><span class="line"></span><br><span class="line">1557646638.143858 140203525388096: </span><br><span class="line">use the OpenBTSCLI utility to access CLI</span><br><span class="line"></span><br><span class="line">1557646638.144045 140203525388096: OpenBTSCLI network socket support for tcp:49300</span><br><span class="line"></span><br><span class="line">OpenBTS&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="Getting_Started_with_OpenBTS_Range_Networks.pdf">OpenBTS操作指南</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    HengYuD
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/" title="Gnuradio + UHD + OpenBTS 软件无线电平台搭建">https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OpenBTS/" rel="tag"># OpenBTS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/编译原理：简单绘图语言解释器的实现/" rel="next" title="编译原理：简单绘图语言解释器的实现">
+                <i class="fa fa-chevron-left"></i> 编译原理：简单绘图语言解释器的实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="HengYuD">
+            
+              <p class="site-author-name" itemprop="name">HengYuD</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a rel="external nofollow" href="https://github.com/HengYuD" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a rel="external nofollow" href="mailto:HengYuDD@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ama666.cn/" title="ama666" rel="external nofollow" target="_blank">ama666</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gnuradio-UHD-OpenBTS-软件无线电平台搭建"><span class="nav-number">1.</span> <span class="nav-text">Gnuradio + UHD + OpenBTS 软件无线电平台搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换源并更新软件源"><span class="nav-number">1.2.</span> <span class="nav-text">换源并更新软件源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gnuradio"><span class="nav-number">1.3.</span> <span class="nav-text">Gnuradio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UHD-安装"><span class="nav-number">1.4.</span> <span class="nav-text">UHD 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenBTS-安装"><span class="nav-number">1.5.</span> <span class="nav-text">OpenBTS 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.6.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HengYuD</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">18.4k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b490ffdffc97947ae5d',
+          clientSecret: '7668cc8cfeaf79704cbb8c064cecbdcf2ea056f3',
+          repo: 'HengYuD.github.io',
+          owner: 'HengYuD',
+          admin: ['HengYuD'],
+          id: md5(location.pathname),
+          labels: 'gitalk'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("oI89taY80uLQcIrD5a7LyGAw-gzGzoHsz", "cdfkhrrL2XoiYLRga7PWjX2k");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
