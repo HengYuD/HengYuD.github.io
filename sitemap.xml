@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hengyud.cn/Linux-%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/</loc>
+    
+    <lastmod>2019-05-14T17:45:09.445Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hengyud.cn/about/index.html</loc>
     
     <lastmod>2019-05-13T14:30:53.043Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>https://hengyud.cn/tags/index.html</loc>
     
     <lastmod>2019-04-15T12:22:47.216Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hengyud.cn/hello-world/</loc>
-    
-    <lastmod>2019-04-11T05:31:00.209Z</lastmod>
     
   </url>
   

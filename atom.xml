@@ -247,11 +247,11 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://hengyud.cn/hello-world/"/>
-    <id>https://hengyud.cn/hello-world/</id>
-    <published>2019-04-11T05:31:00.209Z</published>
-    <updated>2019-04-11T05:31:00.209Z</updated>
+    <title>Linux 内核编译与系统调用</title>
+    <link href="https://hengyud.cn/Linux-%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/"/>
+    <id>https://hengyud.cn/Linux-内核编译与系统调用/</id>
+    <published>2018-05-14T17:33:08.000Z</published>
+    <updated>2019-05-14T17:45:09.445Z</updated>
     
     <summary type="html">
     
@@ -262,6 +262,10 @@
     
     </summary>
     
+      <category term="Linux" scheme="https://hengyud.cn/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://hengyud.cn/tags/Linux/"/>
     
   </entry>
   
