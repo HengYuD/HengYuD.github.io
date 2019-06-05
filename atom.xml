@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hengyud.cn/"/>
-  <updated>2019-05-13T14:30:33.237Z</updated>
+  <updated>2019-06-05T11:22:06.083Z</updated>
   <id>https://hengyud.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TensorFlow-神经网络初始</title>
+    <link href="https://hengyud.cn/TensorFlow-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%9D%E5%A7%8B/"/>
+    <id>https://hengyud.cn/TensorFlow-神经网络初始/</id>
+    <published>2019-06-05T10:57:19.000Z</published>
+    <updated>2019-06-05T11:22:06.083Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="神经网络" scheme="https://hengyud.cn/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="TensorFlow" scheme="https://hengyud.cn/tags/TensorFlow/"/>
+    
+  </entry>
   
   <entry>
     <title>Gnuradio + UHD + OpenBTS 软件无线电平台搭建</title>

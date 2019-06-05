@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="TensorFlow,">
 
 
 
@@ -88,13 +88,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="HengYuD">
-<meta property="og:url" content="https://hengyud.cn/archives/index.html">
+<meta name="description" content="TensorFlow 编程基础TensorFlow中的张量概念 TensorFlow用张量这种数据结构来表示所有的数据，可以把一个张量想象成一个n维的数组，一个张量有一个静态类型和动态类型的维数，张量可以在图中的节点之间流通，张量没有真正保存数字，它保存的是计算过程 变量、常量和占位符区别 常量不能改变，不需要进行初始化操作；变量在运行过程中值会改变，须进行初始化操作创建语句，增加了一个init初">
+<meta name="keywords" content="TensorFlow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow-神经网络初始">
+<meta property="og:url" content="https://hengyud.cn/TensorFlow-神经网络初始/index.html">
 <meta property="og:site_name" content="HengYuD">
+<meta property="og:description" content="TensorFlow 编程基础TensorFlow中的张量概念 TensorFlow用张量这种数据结构来表示所有的数据，可以把一个张量想象成一个n维的数组，一个张量有一个静态类型和动态类型的维数，张量可以在图中的节点之间流通，张量没有真正保存数字，它保存的是计算过程 变量、常量和占位符区别 常量不能改变，不需要进行初始化操作；变量在运行过程中值会改变，须进行初始化操作创建语句，增加了一个init初">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-05T11:22:06.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HengYuD">
+<meta name="twitter:title" content="TensorFlow-神经网络初始">
+<meta name="twitter:description" content="TensorFlow 编程基础TensorFlow中的张量概念 TensorFlow用张量这种数据结构来表示所有的数据，可以把一个张量想象成一个n维的数组，一个张量有一个静态类型和动态类型的维数，张量可以在图中的节点之间流通，张量没有真正保存数字，它保存的是计算过程 变量、常量和占位符区别 常量不能改变，不需要进行初始化操作；变量在运行过程中值会改变，须进行初始化操作创建语句，增加了一个init初">
 
 
 
@@ -124,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://hengyud.cn/archives/">
+  <link rel="canonical" href="https://hengyud.cn/TensorFlow-神经网络初始/">
 
 
 
 
 
-  <title>归档 | HengYuD</title>
+  <title>TensorFlow-神经网络初始 | HengYuD</title>
   
 
 
@@ -149,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -285,391 +290,298 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/TensorFlow-神经网络初始/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HengYuD">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HengYuD">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">TensorFlow-神经网络初始</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T18:57:19+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-05T19:22:06+08:00">
+                2019-06-05
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 12 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/神经网络/" itemprop="url" rel="index">
+                    <span itemprop="name">神经网络</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/TensorFlow-神经网络初始/" class="leancloud_visitors" data-flag-title="TensorFlow-神经网络初始">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/TensorFlow-神经网络初始/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">TensorFlow-神经网络初始</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-05T18:57:19+08:00" content="2019-06-05">
-          06-05
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/" itemprop="url">
-              
-                <span itemprop="name">Gnuradio + UHD + OpenBTS 软件无线电平台搭建</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-13T22:12:52+08:00" content="2019-05-13">
-          05-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/编译原理：简单绘图语言解释器的实现/" itemprop="url">
-              
-                <span itemprop="name">编译原理：简单绘图语言解释器的实现</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-06T19:42:42+08:00" content="2019-05-06">
-          05-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="TensorFlow-编程基础"><a href="#TensorFlow-编程基础" class="headerlink" title="TensorFlow 编程基础"></a>TensorFlow 编程基础</h2><p>TensorFlow中的张量概念</p>
+<p>TensorFlow用张量这种数据结构来表示所有的数据，可以把一个张量想象成一个n维的数组，一个张量有一个静态类型和动态类型的维数，张量可以在图中的节点之间流通，张量没有真正保存数字，它保存的是计算过程</p>
+<p>变量、常量和占位符区别</p>
+<p>常量不能改变，不需要进行初始化操作；变量在运行过程中值会改变，须进行初始化操作创建语句，增加了一个init初始化变量，并调用绘画的run命令对参数进行初始化；占位符不包含任何数据，因此不需要初始化，是TensorFlow中特有的一种数据结构，类似动态变量，函数的参数、或者C语言或者Pyrhon语言中格式化输出时的 ”%”。</p>
+<h2 id="总结变量初始化方式"><a href="#总结变量初始化方式" class="headerlink" title="总结变量初始化方式"></a>总结变量初始化方式</h2><p>个别变量初始化</p>
+<p><code>init_op = name_variable.initializer()</code></p>
+<p>所有变量初始化</p>
+<p><code>init_op = tf.global_variables_initializer()</code></p>
+<p>若一个变量的初始化依赖于其他变量的初始化，为了确保初始化顺序不能错，可以使用<code>initialized_value()</code></p>
+<h2 id="TensorBoard使用方法"><a href="#TensorBoard使用方法" class="headerlink" title="TensorBoard使用方法"></a>TensorBoard使用方法</h2><p>在python程序末尾确定输出的日志文件log位置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">logdir=<span class="string">'C:/Users/xxx/Desktop/log'</span></span><br><span class="line"></span><br><span class="line">writer = tf.summary.FileWriter(logdir,tf.get_default_graph())</span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
+<p>这里需要注意的是目录的路径中不能使用 “\“ ，可能会导致一些不能解析的错误</p>
+<p>命令行进入日志存放目录中执行</p>
+<p><code>tensorboard –logdir=/path/log</code></p>
+<p>然后浏览器进入<code>http://localhost:6006/</code> 即可</p>
+<h2 id="单变量线性回归"><a href="#单变量线性回归" class="headerlink" title="单变量线性回归"></a>单变量线性回归</h2><p>形如<code>y = w * x + b</code></p>
+<p>给出一堆 x，和对应的标签 y，给出一个新的 x，希望算出来对应的 y；这种一次线性的模型，需要做的就是确定相关的 w、b 参数，模型内部的参数值是通过学习得到的</p>
+<h2 id="使用Tensorflow解决单变量线性回归问题的主要步骤"><a href="#使用Tensorflow解决单变量线性回归问题的主要步骤" class="headerlink" title="使用Tensorflow解决单变量线性回归问题的主要步骤"></a>使用Tensorflow解决单变量线性回归问题的主要步骤</h2><ul>
+<li><p>生成人工数据集及其可视化</p>
+</li>
+<li><p>构建线性模型</p>
+</li>
+<li><p>定义损失函数</p>
+</li>
+<li><p>定义优化器、最小化损失函数</p>
+</li>
+<li><p>训练结果的可视化</p>
+</li>
+<li><p>利用学习到的模型进行预测</p>
+</li>
+</ul>
+<h2 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h2><p><strong>多元线性回归中的模型训练方法</strong></p>
+<ul>
+<li><p>设置训练超参数</p>
+</li>
+<li><p>定义均方差损失函数</p>
+</li>
+<li><p>选择优化器</p>
+</li>
+<li><p>声明会话</p>
+</li>
+<li><p>启动会话</p>
+</li>
+<li><p>迭代训练</p>
+</li>
+</ul>
+<p><strong>如何对特征数据进行归一化处理</strong></p>
+<p>（特征值-特征值最小值）/（特征值最大值-特征值最小值）</p>
+<h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p><strong>使用卷积层与使用全连接层的区别</strong></p>
+<p>卷积层：卷积运算的主要目的是使原信号特征增强，并降低噪音；每个输出特性不用查看每个输入特征，而只需查看部分输入特征，卷积核在图像上滑动过程中保持不变。</p>
+<p>全连接层：对生成的特征进行加权；每个输出都是所有输入数据的加权求和。</p>
+<p><strong>总结卷积核、多通道卷积及池化操作</strong></p>
+<p>每个卷积核都会将图像生成为另一幅特征映射图，即：一个卷积核提取一种特征。为了使特征提取更充分，可以添加多个卷积核以提取不同的特征，也就是，多通道卷积。计算图像一个区域上的某个特定特征的平均值或最大值，这种聚合操作就叫做池化。卷积层的作用是探测上一层特征的局部连接，而池化的作用是在语义上把相似的特征合并起来，从而达到降维目的。</p>
+<h2 id="深度神经网络"><a href="#深度神经网络" class="headerlink" title="深度神经网络"></a>深度神经网络</h2><p><strong>数据增强的主要方式</strong></p>
+<p>水平翻转，上下翻转、改变对比度、剪裁或填充后缩放，随机裁剪、白化处理、</p>
+<p><strong>Deep Dream的技术原理</strong></p>
+<p>假设输入图像是 x，把图像输入到卷积神经网络中，输出的结果是各个类别的概率，指定一个标签，通过预测结果与指定标签之间的误差来反向传播到输入图像，这里调整的是输入图像的像素值，而不是卷积神经网络，卷积神经网络的参数是固定的，所以只需要导入已经训练好的模型，预训练模型。在生成某一类别图像的时候，通过最大化输出层输出的这一类别的概率来实现目标，通过最大化卷积层某一通道的激活值来可视化卷积层的特征。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Python实现hangman游戏/" itemprop="url">
-              
-                <span itemprop="name">Python实现hangman游戏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-26T00:56:02+08:00" content="2019-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Gnuradio之SSB信号接收/" itemprop="url">
-              
-                <span itemprop="name">Gnuradio之SSB信号接收</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T17:50:43+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Gnuradio之复解析信号特征/" itemprop="url">
-              
-                <span itemprop="name">Gnuradio之复解析信号特征</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T16:29:41+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Gnuradio之AM电台接收机/" itemprop="url">
-              
-                <span itemprop="name">Gnuradio之AM电台接收机</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T15:52:32+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Gnuradio之ASK信号的调制与解调/" itemprop="url">
-              
-                <span itemprop="name">Gnuradio之ASK信号的调制与解调</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T15:39:04+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Gnuradio之AM-DSB-LSB实现/" itemprop="url">
-              
-                <span itemprop="name">Gnuradio之AM-DSB-LSB实现</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T15:05:49+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/4G-LTE测试分析/" itemprop="url">
-              
-                <span itemprop="name">4G-LTE测试分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-19T20:54:46+08:00" content="2019-04-19">
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    HengYuD
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hengyud.cn/TensorFlow-神经网络初始/" title="TensorFlow-神经网络初始">https://hengyud.cn/TensorFlow-神经网络初始/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/" rel="next" title="Gnuradio + UHD + OpenBTS 软件无线电平台搭建">
+                <i class="fa fa-chevron-left"></i> Gnuradio + UHD + OpenBTS 软件无线电平台搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -677,6 +589,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -697,8 +618,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -796,6 +726,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow-编程基础"><span class="nav-number">1.</span> <span class="nav-text">TensorFlow 编程基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结变量初始化方式"><span class="nav-number">2.</span> <span class="nav-text">总结变量初始化方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorBoard使用方法"><span class="nav-number">3.</span> <span class="nav-text">TensorBoard使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单变量线性回归"><span class="nav-number">4.</span> <span class="nav-text">单变量线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Tensorflow解决单变量线性回归问题的主要步骤"><span class="nav-number">5.</span> <span class="nav-text">使用Tensorflow解决单变量线性回归问题的主要步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多元线性回归"><span class="nav-number">6.</span> <span class="nav-text">多元线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积神经网络"><span class="nav-number">7.</span> <span class="nav-text">卷积神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度神经网络"><span class="nav-number">8.</span> <span class="nav-text">深度神经网络</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -943,6 +889,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -983,6 +933,26 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b490ffdffc97947ae5d',
+          clientSecret: '7668cc8cfeaf79704cbb8c064cecbdcf2ea056f3',
+          repo: 'HengYuD.github.io',
+          owner: 'HengYuD',
+          admin: ['HengYuD'],
+          id: md5(location.pathname),
+          labels: 'gitalk'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
