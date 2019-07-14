@@ -117,7 +117,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -461,7 +461,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install git swig cmake doxygen build-essential libboost-all-dev libtool libusb-1.0-0 libusb-1.0-0-dev libudev-dev libncurses5-dev libfftw3-bin libfftw3-dev libfftw3-doc libcppunit-1.13-0v5 libcppunit-dev libcppunit-doc ncurses-bin cpufrequtils python-numpy python-numpy-doc python-numpy-dbg python-scipy python-docutils qt4-bin-dbg qt4-default qt4-doc libqt4-dev libqt4-dev-bin python-qt4 python-qt4-dbg python-qt4-dev python-qt4-doc python-qt4-doc libfftw3-bin libfftw3-dev libfftw3-doc ncurses-bin libncurses5 libncurses5-dev libncurses5-dbg   libfontconfig1-dev libxrender-dev libpulse-dev swig g++ automake autoconf libtool python-dev libfftw3-dev libcppunit-dev libboost-all-dev libusb-dev libusb-1.0-0-dev fort77 libsdl1.2-dev python-wxgtk2.8 git-core libqt4-dev python-numpy ccache python-opengl libgsl0-dev python-cheetah python-mako python-lxml doxygen qt4-default qt4-dev-tools libusb-1.0-0-dev libqwt5-qt4-dev libqwtplot3d-qt4-dev pyqt4-dev-tools python-qwt5-qt4 cmake git-core wget libxi-dev gtk2-engines-pixbuf r-base-dev python-tk liborc-0.4-0 liborc-0.4-dev libasound2-dev python-gtk2 libzmq1 libzmq-dev python-requests python-sphinx libcomedi-dev python-sip \pkg-config libxrender-dev python-sip-dev \libqt4-opengl-dev</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:nilarimogard/webupd8</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install python-wxgtk2.8</span><br></pre></td></tr></table></figure>
 <p>2、进入安装包下载目录，并将安装包解压到 /usr/local/ 目录下（root 模式）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf gnuradio.3.7.9.tar.gz -C /usr/local</span><br><span class="line">cd /usr/local/gnuradio-3.7.9/</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../</span><br><span class="line">make</span><br><span class="line">sudo make install </span><br><span class="line">sudo ldconfig</span><br><span class="line"><span class="meta">#</span>安装完毕输入</span><br><span class="line">sudo gnuradio-companion #启动Gnuradio</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf gnuradio.3.7.9.tar.gz -C /usr/local</span><br><span class="line">cd /usr/local/gnuradio-3.7.9/</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../</span><br><span class="line">make</span><br><span class="line">sudo make install </span><br><span class="line">sudo ldconfig</span><br><span class="line"><span class="meta">#</span><span class="bash">安装完毕输入</span></span><br><span class="line">sudo gnuradio-companion #启动Gnuradio</span><br></pre></td></tr></table></figure>
 <p>3、如果想省事的话，可以直接</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnuradio</span><br></pre></td></tr></table></figure>
 <h2 id="UHD-安装"><a href="#UHD-安装" class="headerlink" title="UHD 安装"></a>UHD 安装</h2><p>UHD 我使用的是 <a href="https://github.com/EttusResearch/uhd/archive/release_003_009_005.tar.gz" target="_blank" rel="noopener">release_003_009_005</a> ，可能因为 uhd 在3.10 左右的版本做的一个改动会导致在编译 OpenBTS <code>./build.sh B210</code> 时无法进行下去</p>
@@ -480,7 +480,7 @@
 <p>若显示 pip 尚未安装，则西安安装 pip，再安装 requests</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python-pip</span><br><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
 <p>安装完毕接着执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ./uhd_images_downloader.py</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="meta">#</span>提示如下</span><br><span class="line">Images successfully installed to:/usr/local/share/uhd/images</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ./uhd_images_downloader.py</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="meta">#</span><span class="bash">提示如下</span></span><br><span class="line">Images successfully installed to:/usr/local/share/uhd/images</span><br></pre></td></tr></table></figure>
 <p>连接真实 USRP 硬件后， 在终端键入 uhd_find_devices 会显示当前链接的 USRP 的参数，说名 UHD 安装成功</p>
 <p><img src="/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/3.png" alt="3"></p>
 <h2 id="OpenBTS-安装"><a href="#OpenBTS-安装" class="headerlink" title="OpenBTS 安装"></a>OpenBTS 安装</h2><p>1、安装依赖</p>
@@ -637,6 +637,8 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
     
     <div class="sidebar-inner">
 
