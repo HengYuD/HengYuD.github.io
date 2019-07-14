@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hengyud.cn/"/>
-  <updated>2019-06-10T04:46:10.813Z</updated>
+  <updated>2019-07-14T12:37:11.416Z</updated>
   <id>https://hengyud.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql注入测试实验</title>
+    <link href="https://hengyud.cn/mysql%E6%B3%A8%E5%85%A5%E6%B5%8B%E8%AF%95%E5%AE%9E%E9%AA%8C/"/>
+    <id>https://hengyud.cn/mysql注入测试实验/</id>
+    <published>2019-07-14T12:27:25.000Z</published>
+    <updated>2019-07-14T12:37:11.416Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL注入实验" scheme="https://hengyud.cn/tags/MySQL%E6%B3%A8%E5%85%A5%E5%AE%9E%E9%AA%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>网络设备性能测试</title>
@@ -67,7 +88,7 @@
     <link href="https://hengyud.cn/Gnuradio-UHD-OpenBTS-%E8%BD%AF%E4%BB%B6%E6%97%A0%E7%BA%BF%E7%94%B5%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/"/>
     <id>https://hengyud.cn/Gnuradio-UHD-OpenBTS-软件无线电平台搭建/</id>
     <published>2019-05-13T14:12:52.000Z</published>
-    <updated>2019-05-13T14:30:33.237Z</updated>
+    <updated>2019-07-10T05:20:21.347Z</updated>
     
     <summary type="html">
     
