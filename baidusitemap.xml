@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hengyud.cn/mysql%E6%B3%A8%E5%85%A5%E6%B5%8B%E8%AF%95%E5%AE%9E%E9%AA%8C/</loc>
-    <lastmod>2019-07-14</lastmod>
+    <loc>https://hengyud.cn/gr-bokeh-env/</loc>
+    <lastmod>2019-07-22</lastmod>
+  </url>  <url>
+    <loc>https://hengyud.cn/mysql%E6%B3%A8%E5%85%A5%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2019-07-22</lastmod>
   </url>  <url>
     <loc>https://hengyud.cn/Gnuradio-UHD-OpenBTS-%E8%BD%AF%E4%BB%B6%E6%97%A0%E7%BA%BF%E7%94%B5%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2019-07-10</lastmod>
