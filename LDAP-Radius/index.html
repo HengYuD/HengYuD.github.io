@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ldap,">
 
 
 
@@ -88,13 +88,28 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="HengYuD">
-<meta property="og:url" content="https://hengyud.cn/page/2/index.html">
+<meta name="description" content="实验内容 用 openldap 搭建 LDAP 服务器，尝试对学生信息进行增删改查，信息包括但不限于学生 id、密码、邮箱、手机号、部门等。 配置 apache 服务器，配置 Basic 认证模块和需要认证的页面，使用用户名密码认证。 配置 apache 服务器，配置 LDAP 认证模块和需要认证的页面，使用 LDAP 存放的学生的用户名密码认证。 用 freeradius 搭建 RADIUS 服">
+<meta name="keywords" content="ldap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LDAP+Radius">
+<meta property="og:url" content="https://hengyud.cn/LDAP-Radius/index.html">
 <meta property="og:site_name" content="HengYuD">
+<meta property="og:description" content="实验内容 用 openldap 搭建 LDAP 服务器，尝试对学生信息进行增删改查，信息包括但不限于学生 id、密码、邮箱、手机号、部门等。 配置 apache 服务器，配置 Basic 认证模块和需要认证的页面，使用用户名密码认证。 配置 apache 服务器，配置 LDAP 认证模块和需要认证的页面，使用 LDAP 存放的学生的用户名密码认证。 用 freeradius 搭建 RADIUS 服">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/1.png">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/2.png">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/3.png">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/4.png">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/5.png">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/6.png">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/7.png">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/8.png">
+<meta property="og:image" content="https://hengyud.cn/LDAP-Radius/9.png">
+<meta property="og:updated_time" content="2019-09-17T06:35:54.023Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HengYuD">
+<meta name="twitter:title" content="LDAP+Radius">
+<meta name="twitter:description" content="实验内容 用 openldap 搭建 LDAP 服务器，尝试对学生信息进行增删改查，信息包括但不限于学生 id、密码、邮箱、手机号、部门等。 配置 apache 服务器，配置 Basic 认证模块和需要认证的页面，使用用户名密码认证。 配置 apache 服务器，配置 LDAP 认证模块和需要认证的页面，使用 LDAP 存放的学生的用户名密码认证。 用 freeradius 搭建 RADIUS 服">
+<meta name="twitter:image" content="https://hengyud.cn/LDAP-Radius/1.png">
 
 
 
@@ -124,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="https://hengyud.cn/page/2/">
+  <link rel="canonical" href="https://hengyud.cn/LDAP-Radius/">
 
 
 
 
 
-  <title>HengYuD</title>
+  <title>LDAP+Radius | HengYuD</title>
   
 
 
@@ -153,8 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,9 +303,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -304,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/Gnuradio之AM电台接收机/">
+    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/LDAP-Radius/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HengYuD">
@@ -321,9 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Gnuradio之AM电台接收机/" itemprop="url">Gnuradio之AM电台接收机</a></h1>
+          <h1 class="post-title" itemprop="name headline">LDAP+Radius</h1>
         
 
         <div class="post-meta">
@@ -335,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T15:52:32+08:00">
-                2019-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T14:31:13+08:00">
+                2019-09-17
               </time>
             
 
@@ -351,8 +363,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T16:25:11+08:00">
-                2019-04-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-17T14:35:54+08:00">
+                2019-09-17
               </time>
             
           </span>
@@ -370,8 +382,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/无线通信/" itemprop="url" rel="index">
-                    <span itemprop="name">无线通信</span>
+                  <a href="/categories/认证/" itemprop="url" rel="index">
+                    <span itemprop="name">认证</span>
                   </a>
                 </span>
 
@@ -401,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.2k
                 </span>
               
 
@@ -438,20 +450,85 @@
       
 
       
-        
-          
-          实验目的学习 GNU Radio 流程图编程。 了解 AM 信号的接收处理流程， 找到自己需要的模块， 修改模块的参数，设计 AM 电台信号接收流程图， 并收听电台内容。
+        <h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><ol>
+<li>用 openldap 搭建 LDAP 服务器，尝试对学生信息进行增删改查，信息包括但不限于学生 id、密码、邮箱、手机号、部门等。</li>
+<li>配置 apache 服务器，配置 Basic 认证模块和需要认证的页面，使用用户名密码认证。</li>
+<li>配置 apache 服务器，配置 LDAP 认证模块和需要认证的页面，使用 LDAP 存放的学生的用户名密码认证。</li>
+<li>用 freeradius 搭建 RADIUS 服务器，尝试配置基于 unix 账号的认证，并用radtest 验证服务有效。</li>
+<li>配置 apache 服务器，配置 RADIUS 认证模块和需要认证的页面，使用<br>unix/Linux 本地用户名密码认证。</li>
+<li>在 freeradius 中配置 ldap 认证模块，和 LDAP 服务器互通，利用 ldap 账号密码认证用户身份，并用radtest 测试通过。</li>
+<li>在之前 apache 的 RADIUS 认证模块的配置下，不改变配置，切换到使用 LDAP存放的学生用户名密码认证，体会这种配置和 3 的不同。</li>
+<li>在 ROS 的 AP 下，通过配置与 RADIUS 服务器连接，是学生可以通过存放在 LDAP中的用户名密码来通过认证接入 wifi。 </li>
+</ol>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>轻量级目录访问协议（LDAP）是用于通过网络管理和访问分层目录信息的标准协议。 它可以用于存储任何类型的信息，尽管它通常用作集中式身份验证系统或公司电子邮件和电话目录。 为了能够使第三方的系统进行统一化管理，利用 Openldap 进行管理所有员工组织数据，包括部门等组织架构数据。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>ubuntu18.04、apache2、openldap、phpldapadmin、</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>1、安装openldap</p>
+<p><code>sudo apt-get install slapd ldap-utils</code></p>
+<p><code>sudo vim /etc/ldap/ldap.conf</code></p>
+<p><img src="/LDAP-Radius/1.png" alt></p>
+<p><code>sudo dpkg-reconfigure slapd</code>对slapd进行配置</p>
+<p>2、安装phpldapadmin</p>
+<p><code>sudo apt-get install phpldapadmin</code></p>
+<p><code>sudo vim /etc/phpldapadmin/config.php</code></p>
+<p><img src="/LDAP-Radius/2.png" alt></p>
+<p>3、配置防火墙</p>
+<p><code>sudo ufw allow &quot;Apache Full&quot;</code></p>
+<p><code>sudo ufw allow &quot;Apache Secure&quot;</code></p>
+<p><code>sudo service apache2 restart</code></p>
+<p>4、新建认证页面</p>
+<p><code>sudo vim /var/www/html/auth-basic/index.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Basic Authentication<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"font-size: 40px; font-weight: bold; text-align: center;"</span>&gt;</span></span><br><span class="line">                Basic Authentication Success!</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/LDAP-Radius/3.png" alt></p>
+<h3 id="配置本地basic认证"><a href="#配置本地basic认证" class="headerlink" title="配置本地basic认证"></a>配置本地basic认证</h3><p>1、创建用户</p>
+<p><img src="/LDAP-Radius/4.png" alt></p>
+<p>2、修改本地apache配置文件</p>
+<p><code>sudo vim /etc/apache2/apache2.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /var/www/&gt;</span><br><span class="line">        Options Indexes FollowSymLinks</span><br><span class="line">        AllowOverride ALL</span><br><span class="line">        Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<p>3、创建<code>.htaccess</code>文件</p>
+<p>在<code>/var/www/html/auth-basic/</code>下创建<code>.htaccess</code>文件，内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AuthType Basic</span><br><span class="line">AuthName &quot;Basic Authentication&quot;</span><br><span class="line">AuthUserFile /etc/apache2/.user</span><br><span class="line">Require valid-user</span><br></pre></td></tr></table></figure>
+<p>登录测试</p>
+<h3 id="启动ldap模块"><a href="#启动ldap模块" class="headerlink" title="启动ldap模块"></a>启动ldap模块</h3><p>1、激活ldap</p>
+<p><code>sudo a2enmod ldap authnz_ldap</code></p>
+<p>关闭ldap</p>
+<p><code>sudo /etc/init.d/slapd stop</code></p>
+<p>配置认证信息</p>
+<p><code>sudo vim /etc/apache2/sites-available/auth-ldap.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory &quot;/var/www/html/auth-ldap&quot;&gt;</span><br><span class="line">	AuthName &quot;LDAP Authentication&quot;</span><br><span class="line">	AuthType Basic</span><br><span class="line">	AuthBasicProvider ldap</span><br><span class="line">	AuthLDAPUrl &quot;ldap://127.0.0.1/dc=example,dc=com&quot;</span><br><span class="line">	Require valid-user</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<p>2、创建配置页面</p>
+<p><img src="/LDAP-Radius/5.png" alt></p>
+<p><code>sudo vim index.html</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;LDAP Authentication&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">        &lt;p style=&quot;font-size: 40px; font-weight: bold; text-align: center;&quot;&gt;</span><br><span class="line">                LDAP Authentication Success!</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="安装FreeRadius"><a href="#安装FreeRadius" class="headerlink" title="安装FreeRadius"></a>安装FreeRadius</h3><p>1、<code>sudo apt-get install freeradius</code></p>
+<p><code>freeradius -v</code></p>
+<p><img src="/LDAP-Radius/6.png" alt></p>
+<p>2、配置clients.conf文件</p>
+<p><code>sudo vim /etc/freeradius/clients.conf</code></p>
+<p>本地实验无需更改</p>
+<p>3、添加用户</p>
+<p>同目录下的users文件</p>
+<p><img src="/LDAP-Radius/7.png" alt></p>
+<p><img src="/LDAP-Radius/8.png" alt></p>
+<p>4、在apache2上安装Radius身份认证都需要的模块</p>
+<p><code>sudo apt-get install libapache2-mod-auth-radius</code></p>
+<p>启动模块</p>
+<p><code>a2enmod auth_radius</code></p>
+<p>在apache配置文件中添加认证</p>
+<p><code>sudo vim /etc/apache2/apache2.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AddRadiusAuth localhost:1812 testing123 5</span><br><span class="line">AddRadiusCookieValid 60</span><br></pre></td></tr></table></figure>
+<p>5、创建配置页面</p>
+<p>在<code>/etc/www/html</code>目录下新建目录<code>auth-radius</code></p>
+<p>新建 <code>index.html</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Radius Authentication&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">        &lt;p style=&quot;font-size: 40px; font-weight: bold; text-align: center;&quot;&gt;</span><br><span class="line">                Radius Authentication Success!</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>配置<code>.htaccess</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AuthType Basic</span><br><span class="line">AuthName &quot;Radius Authentication&quot;</span><br><span class="line">AuthBasicAuthoritative off</span><br><span class="line">AuthBasicProvider radius</span><br><span class="line">AuthRadiusAuthoritative on</span><br><span class="line">AuthRadiusActive On</span><br><span class="line">Require valid-user</span><br></pre></td></tr></table></figure>
+<p>重启apache服务测试</p>
+<h3 id="安装FreeRADIUS"><a href="#安装FreeRADIUS" class="headerlink" title="安装FreeRADIUS"></a>安装FreeRADIUS</h3><p><code>sudo apt install freeradius-ldap</code></p>
+<p>配置 FreeRADIUS 的 ldap 参数<br><code>vim /etc/freeradius/3.0/mods-available/ldap</code></p>
+<p><img src="/LDAP-Radius/9.png" alt></p>
+<p>测试</p>
+<h2 id="体会"><a href="#体会" class="headerlink" title="体会"></a>体会</h2><p>在 Web 端配置基本认证方式、 LDAP 认证方法以及结合 Radius 进行认证的方法。LDAP 是用来提供目录服务的，按目录结点的方式来存取信息，方便对用户身份信息认证数据的存取， Radius 是一种支持多种认证方式的认证协议。 LDAP加Radius 的组合方式可以使认证更系统化，操作更加便捷直观，也更加的安全。 </p>
 
-打开 GRC，并连接如图所
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Gnuradio之AM电台接收机/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -463,406 +540,57 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    HengYuD
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hengyud.cn/LDAP-Radius/" title="LDAP+Radius">https://hengyud.cn/LDAP-Radius/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/Gnuradio之ASK信号的调制与解调/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HengYuD">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HengYuD">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Gnuradio之ASK信号的调制与解调/" itemprop="url">Gnuradio之ASK信号的调制与解调</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T15:39:04+08:00">
-                2019-04-23
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T15:50:30+08:00">
-                2019-04-23
-              </time>
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/无线通信/" itemprop="url" rel="index">
-                    <span itemprop="name">无线通信</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/ldap/" rel="tag"># ldap</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  324
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          实验目的​        学习 GNU Radio 流程图编程。 了解 ASK 信号的发送和接收处理流程， 找到自己需要的模块， 修改模块的参数，设计 ASK 信号发送接收流程图
-实验步骤​     
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Gnuradio之ASK信号的调制与解调/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/gr-bokeh-env/" rel="next" title="gr_bokeh_env">
+                <i class="fa fa-chevron-left"></i> gr_bokeh_env
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/Gnuradio之AM-DSB-LSB实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HengYuD">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HengYuD">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Gnuradio之AM-DSB-LSB实现/" itemprop="url">Gnuradio之AM-DSB-LSB实现</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T15:05:49+08:00">
-                2019-04-23
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T16:35:42+08:00">
-                2019-04-23
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/无线通信/" itemprop="url" rel="index">
-                    <span itemprop="name">无线通信</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  413
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          实验目的利用模拟幅度调制理论知识和 GNURadio 流图设计方法，独立搭建模拟幅度调制设计方案，实现：
-
-AM 调制和控制调幅指数
-DSB 调制和解调
-LSB 调制和解调
-
-并通过仿真结果验证其频谱
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Gnuradio之AM-DSB-LSB实现/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -872,596 +600,27 @@ LSB 调制和解调
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/4G-LTE测试分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HengYuD">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HengYuD">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/4G-LTE测试分析/" itemprop="url">4G-LTE测试分析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T20:54:46+08:00">
-                2019-04-19
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-23T15:00:13+08:00">
-                2019-04-23
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/无线通信/" itemprop="url" rel="index">
-                    <span itemprop="name">无线通信</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3.8k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  13
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          [LTEInspector: A Systematic Approach for Adversarial Testing of 4G LTE]The Attack  Focus On: A-4 Aut
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/4G-LTE测试分析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/Hadoop部署/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HengYuD">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HengYuD">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Hadoop部署/" itemprop="url">Hadoop部署</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T19:08:58+08:00">
-                2019-04-13
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-09T20:20:01+08:00">
-                2019-05-09
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/云计算与大数据/" itemprop="url" rel="index">
-                    <span itemprop="name">云计算与大数据</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          环境Ubuntu 14.04.5 x64Hadoop 2.x.y
-Hadoop 有两个主要版本，Hadoop 1.x.y 和 Hadoop 2.x.y 系列，比较老的教材上用的可能是 0.20 这样的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Hadoop部署/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="gitalk-container"></div>
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
-  
-  
-  
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hengyud.cn/Linux-内核编译与系统调用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HengYuD">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HengYuD">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Linux-内核编译与系统调用/" itemprop="url">Linux 内核编译与系统调用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T01:33:08+08:00">
-                2018-05-15
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-15T01:45:09+08:00">
-                2019-05-15
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.4k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          任务​        编译内核​        增加一个系统调用 CentOS 上编译内核 V4.10.1，并添加一个系统调用
-xz 格式文件如何创建和解压.xz 格式文件？以解压linux-3.12
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Linux-内核编译与系统调用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
 
         </div>
         
@@ -1484,8 +643,17 @@ xz 格式文件如何创建和解压.xz 格式文件？以解压linux-3.12
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1583,6 +751,22 @@ xz 格式文件如何创建和解压.xz 格式文件？以解压linux-3.12
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容"><span class="nav-number">1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">3.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">4.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">4.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置本地basic认证"><span class="nav-number">4.2.</span> <span class="nav-text">配置本地basic认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动ldap模块"><span class="nav-number">4.3.</span> <span class="nav-text">启动ldap模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装FreeRadius"><span class="nav-number">4.4.</span> <span class="nav-text">安装FreeRadius</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装FreeRADIUS"><span class="nav-number">4.5.</span> <span class="nav-text">安装FreeRADIUS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体会"><span class="nav-number">5.</span> <span class="nav-text">体会</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1737,6 +921,10 @@ xz 格式文件如何创建和解压.xz 格式文件？以解压linux-3.12
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1777,6 +965,26 @@ xz 格式文件如何创建和解压.xz 格式文件？以解压linux-3.12
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b490ffdffc97947ae5d',
+          clientSecret: '7668cc8cfeaf79704cbb8c064cecbdcf2ea056f3',
+          repo: 'HengYuD.github.io',
+          owner: 'HengYuD',
+          admin: ['HengYuD'],
+          id: md5(location.pathname),
+          labels: 'gitalk'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
