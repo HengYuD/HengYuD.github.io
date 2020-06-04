@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hengyud.cn/"/>
-  <updated>2020-05-16T16:59:42.802Z</updated>
+  <updated>2020-06-04T04:44:09.368Z</updated>
   <id>https://hengyud.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Darknet-OpenCV环境记录</title>
+    <link href="https://hengyud.cn/Darknet-OpenCV%E7%8E%AF%E5%A2%83%E8%AE%B0%E5%BD%95/"/>
+    <id>https://hengyud.cn/Darknet-OpenCV环境记录/</id>
+    <published>2020-06-04T04:41:56.000Z</published>
+    <updated>2020-06-04T04:44:09.368Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="env" scheme="https://hengyud.cn/categories/env/"/>
+    
+    
+      <category term="darknet" scheme="https://hengyud.cn/tags/darknet/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker常用操作</title>
