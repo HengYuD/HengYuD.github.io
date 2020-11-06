@@ -80,6 +80,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="HengYuD" type="application/atom+xml">
 
@@ -96,7 +98,7 @@
 <meta property="og:site_name" content="HengYuD">
 <meta property="og:description" content="因为使用YOLO做实时目标检测，所以搭建ubuntu的darknet环境，虚拟机中的配置使得检测视频时的fps值偏低，所以在本机装了一个ubuntu18.04的双系统搭建OpenCV、CUDA等环境，趁着还记得安装过程记录下来以便参考 Darknet drone-net opencvsudo apt-get install build-essential libgtk2.0-dev libavco">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-04T05:00:49.833Z">
+<meta property="og:updated_time" content="2020-06-05T04:08:11.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Darknet-OpenCV环境记录">
 <meta name="twitter:description" content="因为使用YOLO做实时目标检测，所以搭建ubuntu的darknet环境，虚拟机中的配置使得检测视频时的fps值偏低，所以在本机装了一个ubuntu18.04的双系统搭建OpenCV、CUDA等环境，趁着还记得安装过程记录下来以便参考 Darknet drone-net opencvsudo apt-get install build-essential libgtk2.0-dev libavco">
@@ -353,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-04T13:00:49+08:00">
-                2020-06-04
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-05T12:08:11+08:00">
+                2020-06-05
               </time>
             
           </span>
@@ -403,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  488
+                  511
                 </span>
               
 
@@ -485,6 +487,7 @@
 <p><strong>查看cudnn版本</strong></p>
 <p><code>cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</code></p>
 <h2 id="darknet"><a href="#darknet" class="headerlink" title="darknet"></a>darknet</h2><p>修改MakeFile文件选项，编译安装无报错即可</p>
+<p>注：数据集中图片与标签若不放入同一目录则检测不到</p>
 
       
     </div>
